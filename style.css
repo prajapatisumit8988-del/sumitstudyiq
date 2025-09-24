@@ -819,3 +819,29 @@ body.dark-mode a {
     width: 200px;
     height: auto;
 }
+.newspaper-item {
+    width: 180px;
+    background-color: #FFF3E0;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.newspaper-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.newspaper-item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.newspaper-item img {
+    width: 150px;  /* width adjust करें */
+    height: auto;  /* original aspect ratio बनी रहे */
+    border-radius: 5px; /* optional: corners round करने के लिए */
+}
