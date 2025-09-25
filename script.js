@@ -518,3 +518,31 @@ tabBtns.forEach(btn => {
     });
   });
 });
+function showNews(channel) {
+    let newsContent = document.getElementById('news-content');
+
+    // Clear previous content
+    newsContent.innerHTML = '';
+
+    if(channel === 'toi'){
+        newsContent.innerHTML = `
+            <h3>Times of India Today</h3>
+            <a href="https://timesofindia.indiatimes.com/" target="_blank">Visit Times of India</a>
+        `;
+    } else if(channel === 'hindu'){
+        newsContent.innerHTML = `
+            <h3>The Hindu Today</h3>
+            <a href="https://www.thehindu.com/" target="_blank">Visit The Hindu</a>
+        `;
+    } else if(channel === 'indianexpress'){
+        newsContent.innerHTML = `
+            <h3>Indian Express Today</h3>
+            <a href="https://indianexpress.com/" target="_blank">Visit Indian Express</a>
+        `;
+    } else if(channel === 'hindustantimes'){
+        newsContent.innerHTML = `
+            <h3>Hindustan Times Today</h3>
+            <a href="https://www.hindustantimes.com/" target="_blank">Visit Hindustan Times</a>
+        `;
+    }
+}
