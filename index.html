@@ -1,4 +1,3 @@
-<!-- Ye wahi code hai jo maine pehle diya, jisme dark mode aur search functionality hai -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,368 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SumitStudyIQ</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
-
-
+    <script src="script.js"></script>
 </head>
 
 <body>
-    
-    <header>
-        <header style="background-color:#fff; padding:20px; text-align:center; position:sticky; top:0; z-index:1000; box-shadow:0 3px 10px rgba(0,0,0,0.1); border-bottom:2px solid #0099CC;">
-    <h1 style="margin-bottom:10px; color:#0099CC; font-family: 'Arial', sans-serif;">SumitStudyIQ</h1>
-    <input type="text" id="searchInput" placeholder="Search everything..." 
-        style="width:70%; max-width:600px; padding:12px 15px; border-radius:25px; border:1px solid #0099CC; font-size:16px; transition:0.3s; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
-     
-</button>
-
-</header>
-
-       
-        
-    
-
-   
+    <!-- Header -->
+    <header style="background-color:#fff; padding:20px; text-align:center; position:sticky; top:0; z-index:1000; box-shadow:0 3px 10px rgba(0,0,0,0.1); border-bottom:2px solid #0099CC;">
+        <h1 style="margin-bottom:10px; color:#0099CC; font-family: 'Arial', sans-serif;">SumitStudyIQ</h1>
+        <input type="text" id="searchInput" placeholder="Search everything..." 
+            style="width:70%; max-width:600px; padding:12px 15px; border-radius:25px; border:1px solid #0099CC; font-size:16px; transition:0.3s; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+    </header>
 
     <main>
-       <section id="books">
-    <h2 style="text-align:center; color:#4CAF50; margin-bottom:30px;">📚 Books</h2>
-    <div class="books-container">
-
-        <!-- Book 1 -->
-        <div class="book-item" data-title="UPSC Book 1">
-            <a href=https://drive.google.com/file/d/1mZwj5ccqfJr7JwQsR0zoqlu-fkYkfg29/view?usp=drive_link target="_blank">
-                <img src=https://drive.google.com/file/d/1srMgKJnJp-OnVjtVusPs0WoetDq9ZG__/view?usp=drive_link alt="UPSC Book khan sir">
-            </a>
-            <h3>UPSC Book khan sir</h3>
-        </div>
-
-        <!-- Book 2 -->
-        <div class="book-item" data-title="UPSC Book 2">
-            <a href="pdfs/books/book2.pdf" target="_blank">
-                <img src="images/books/book2.jpg" alt="UPSC Book 2">
-            </a>
-            <h3>UPSC Book 2</h3>
-        </div>
-
-        <!-- Book 3 -->
-        <div class="book-item" data-title="History Book">
-            <a href="pdfs/books/book3.pdf" target="_blank">
-                <img src="images/books/book3.jpg" alt="History Book">
-            </a>
-            <h3>History Book</h3>
-        </div>
-
-    </div>
-</section>
-
-
-<section id="current-affairs">
-    <h2 style="text-align:center; color:#FF5722; margin-bottom:30px;">📰 Current Affairs</h2>
-    <div class="current-container">
-
-        <!-- Current Affairs 1 -->
-        <div class="current-item" data-title="Current Affairs September 2025">
-            <a href="pdfs/current_affairs/september2025.pdf" target="_blank">
-                <img src="images/current_affairs/september2025.jpg" alt="Current Affairs September 2025">
-            </a>
-            <h3>Current Affairs Sep 2025</h3>
-        </div>
-
-        <!-- Current Affairs 2 -->
-        <div class="current-item" data-title="Current Affairs August 2025">
-            <a href="pdfs/current_affairs/august2025.pdf" target="_blank">
-                <img src="images/current_affairs/august2025.jpg" alt="Current Affairs August 2025">
-            </a>
-            <h3>Current Affairs Aug 2025</h3>
-        </div>
-
-        <!-- Current Affairs 3 -->
-        <div class="current-item" data-title="Current Affairs July 2025">
-            <a href="pdfs/current_affairs/july2025.pdf" target="_blank">
-                <img src="images/current_affairs/july2025.jpg" alt="Current Affairs July 2025">
-            </a>
-            <h3>Current Affairs Jul 2025</h3>
-        </div>
-
-    </div>
-</section>
-<section id="hand-notes">
-    <h2 style="text-align:center; color:#3F51B5; margin-bottom:30px;">📝 Handwritten Notes</h2>
-    <div class="notes-container">
-
-        <!-- Note 1 -->
-        <div class="note-item" data-title="Math Notes Chapter 1">
-            <a href="pdfs/hand_notes/math_ch1.pdf" target="_blank">
-                <img src="images/hand_notes/math_ch1.jpg" alt="Math Notes Chapter 1">
-            </a>
-            <h3>Math Notes Chapter 1</h3>
-        </div>
-
-        <!-- Note 2 -->
-        <div class="note-item" data-title="History Notes Ancient">
-            <a href="pdfs/hand_notes/history_ancient.pdf" target="_blank">
-                <img src="images/hand_notes/history_ancient.jpg" alt="History Notes Ancient">
-            </a>
-            <h3>History Notes Ancient</h3>
-        </div>
-
-        <!-- Note 3 -->
-        <div class="note-item" data-title="Geography Notes Rivers">
-            <a href="pdfs/hand_notes/geography_rivers.pdf" target="_blank">
-                <img src="images/hand_notes/geography_rivers.jpg" alt="Geography Notes Rivers">
-            </a>
-            <h3>Geography Notes Rivers</h3>
-        </div>
-
-    </div>
-</section>
-
-            
-        </section>
-
-        <section id="class-pdfs">
-            <h2>Class PDFs</h2>
-            <div class="item" data-title="Sample Class PDF">
-                <a href="pdfs/class/sample-class.pdf" target="_blank">Sample Class PDF</a>
+        <!-- Books Section -->
+        <section id="books">
+            <h2 style="text-align:center; color:#4CAF50; margin-bottom:30px;">📚 Books</h2>
+            <div class="books-container">
+                <div class="book-item" data-title="UPSC Book 1">
+                    <a href="https://drive.google.com/file/d/1mZwj5ccqfJr7JwQsR0zoqlu-fkYkfg29/view?usp=drive_link" target="_blank">
+                        <img src="images/books/book1.jpg" alt="UPSC Book khan sir">
+                    </a>
+                    <h3>UPSC Book khan sir</h3>
+                </div>
+                <div class="book-item" data-title="UPSC Book 2">
+                    <a href="pdfs/books/book2.pdf" target="_blank">
+                        <img src="images/books/book2.jpg" alt="UPSC Book 2">
+                    </a>
+                    <h3>UPSC Book 2</h3>
+                </div>
+                <div class="book-item" data-title="History Book">
+                    <a href="pdfs/books/book3.pdf" target="_blank">
+                        <img src="images/books/book3.jpg" alt="History Book">
+                    </a>
+                    <h3>History Book</h3>
+                </div>
             </div>
         </section>
 
-        <section id="notes-pdfs">
-            <h2>Notes PDFs</h2>
-            <div class="item" data-title="Sample Notes PDF">
-                <a href="pdfs/notes/sample-notes.pdf" target="_blank">Sample Notes PDF</a>
+        <!-- Current Affairs Section -->
+        <section id="current-affairs">
+            <h2 style="text-align:center; color:#FF5722; margin-bottom:30px;">📰 Current Affairs</h2>
+            <div class="current-container">
+                <div class="current-item" data-title="Current Affairs September 2025">
+                    <a href="pdfs/current_affairs/september2025.pdf" target="_blank">
+                        <img src="images/current_affairs/september2025.jpg" alt="Current Affairs September 2025">
+                    </a>
+                    <h3>Current Affairs Sep 2025</h3>
+                </div>
+                <div class="current-item" data-title="Current Affairs August 2025">
+                    <a href="pdfs/current_affairs/august2025.pdf" target="_blank">
+                        <img src="images/current_affairs/august2025.jpg" alt="Current Affairs August 2025">
+                    </a>
+                    <h3>Current Affairs Aug 2025</h3>
+                </div>
+                <div class="current-item" data-title="Current Affairs July 2025">
+                    <a href="pdfs/current_affairs/july2025.pdf" target="_blank">
+                        <img src="images/current_affairs/july2025.jpg" alt="Current Affairs July 2025">
+                    </a>
+                    <h3>Current Affairs Jul 2025</h3>
+                </div>
             </div>
         </section>
 
-           
-   
-
-    <div id="classVideosContainer" style="display:none; margin-top:20px;">
-
-        <!-- Subject Buttons -->
-        <div class="subject-buttons">
-            <button class="subject-btn active" data-subject="math">Math</button>
-            <button class="subject-btn" data-subject="history">History</button>
-            <button class="subject-btn" data-subject="geography">Geography</button>
-        </div>
-
-        <!-- Videos Container -->
-        <div id="videos-container">
-            <!-- Math Videos -->
-            <div class="videos math">
-                <div class="item" data-title="Algebra Basics">
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/VIDEO_ID_ALGEBRA1"
-                        title="Algebra Basics" frameborder="0" allowfullscreen></iframe>
-                    <p>Algebra Basics</p>
+        <!-- Handwritten Notes Section -->
+        <section id="hand-notes">
+            <h2 style="text-align:center; color:#3F51B5; margin-bottom:30px;">📝 Handwritten Notes</h2>
+            <div class="notes-container">
+                <div class="note-item" data-title="Math Notes Chapter 1">
+                    <a href="pdfs/hand_notes/math_ch1.pdf" target="_blank">
+                        <img src="images/hand_notes/math_ch1.jpg" alt="Math Notes Chapter 1">
+                    </a>
+                    <h3>Math Notes Chapter 1</h3>
+                </div>
+                <div class="note-item" data-title="History Notes Ancient">
+                    <a href="pdfs/hand_notes/history_ancient.pdf" target="_blank">
+                        <img src="images/hand_notes/history_ancient.jpg" alt="History Notes Ancient">
+                    </a>
+                    <h3>History Notes Ancient</h3>
+                </div>
+                <div class="note-item" data-title="Geography Notes Rivers">
+                    <a href="pdfs/hand_notes/geography_rivers.pdf" target="_blank">
+                        <img src="images/hand_notes/geography_rivers.jpg" alt="Geography Notes Rivers">
+                    </a>
+                    <h3>Geography Notes Rivers</h3>
                 </div>
             </div>
+        </section>
 
-            <!-- History Videos -->
-            <div class="videos history" style="display:none;">
-                <div class="item" data-title="Indus Valley Civilization">
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/VIDEO_ID_HISTORY1"
-                        title="Indus Valley Civilization" frameborder="0" allowfullscreen></iframe>
-                    <p>Indus Valley Civilization</p>
-                </div>
-            </div>
-
-            <!-- Geography Videos -->
-            <div class="videos geography" style="display:none;">
-                <div class="item" data-title="Mountains and Rivers">
-                    <iframe width="560" height="315"
-                        src="https://youtu.be/qlYdAY9l24E?si=6c3keacVHJeYx08C"
-                        title="Mountains and Rivers" frameborder="0" allowfullscreen></iframe>
-                    <p>Mountains and Rivers</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="class-videos">
-  <h2 class="section-title">🎥 Class Videos</h2>
-
-  <!-- Subject Tabs -->
-  <div class="subject-tabs">
-    <button class="tab-btn active" data-subject="math">📐 Math</button>
-    <button class="tab-btn" data-subject="science">🔬 Science</button>
-    <button class="tab-btn" data-subject="history">🏛 History</button>
-  </div>
-
-  <!-- Video Containers -->
-  <div id="videos-container">
-    <!-- Math -->
-    <div class="video-grid videos math">
-      <div class="video-card">
-        <!-- 👉 Yaha apna YouTube video paste kare -->
-        <iframe width="300" height="200" src="https://www.youtube.com/embed/sVuwAi62Lwg"
-          title="Algebra Basics" frameborder="0" allowfullscreen></iframe>
-        <h3>Algebra Basics</h3>
-      </div>
-      <div class="video-card">
-        <!-- 👉 Dusra Math ka video -->
-        <iframe width="300" height="200" src="https://www.youtube.com/embed/VIDEO_ID"
-          title="Geometry Intro" frameborder="0" allowfullscreen></iframe>
-        <h3>Geometry Intro</h3>
-      </div>
-    </div>
-
-    <!-- Science -->
-    <div class="video-grid videos science" style="display:none;">
-      <div class="video-card">
-        <!-- 👉 Science video yaha paste karo -->
-        <iframe width="300" height="200" src="https://www.youtube.com/embed/8e1S7Y5KAFM?si=19NhZXzFsiqP2CVJ"
-          title="Physics Motion" frameborder="0" allowfullscreen></iframe>
-        <h3>Physics: Motion</h3>
-      </div>
-      <div class="video-card">
-        <iframe width="300" height="200" src="https://www.youtube.com/embed/94CiPjGAFcU?si=PdhaGOKbBGu96M-W"
-          title="Chemistry Atoms" frameborder="0" allowfullscreen></iframe>
-        <h3>upsc</h3>
-      </div>
-    </div>
-
-    <!-- History -->
-    <div class="video-grid videos history" style="display:none;">
-      <div class="video-card">
-        <!-- 👉 History video yaha paste karo -->
-         
-        <iframe width="300" height="200" src="https://www.youtube.com/embed/iqD891ttQow?si=zk9ce3ZFyUqFhqMe"
-          title="Indus Valley Civilization" frameborder="0" allowfullscreen></iframe>
-        <h3>Indus Valley Civilization</h3>
-      </div>
-      <div class="video-card">
-        <iframe width="300" height="200" src="https://www.youtube.com/embed/VIDEO_ID"
-          title="Mughal Empire" frameborder="0" allowfullscreen></iframe>
-        <h3>Mughal Empire</h3>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- JavaScript -->
-<script>
-  const tabs = document.querySelectorAll(".tab-btn");
-  const videos = document.querySelectorAll(".videos");
-
-  tabs.forEach(btn => {
-    btn.addEventListener("click", () => {
-      videos.forEach(v => v.style.display = "none");
-      tabs.forEach(t => t.classList.remove("active"));
-
-      document.querySelector("." + btn.dataset.subject).style.display = "flex";
-      btn.classList.add("active");
-    });
-  });
-</script>
-
-
+     <!-- News Section -->
 <section id="news">
-    <h2 style="text-align:center; color:#009688; margin-bottom:30px;">📰 News</h2>
+  <h2 style="text-align:center; color:#009688; margin-bottom:30px;">📰 News</h2>
 
-    <!-- News Channel Buttons -->
-    <div class="news-channels">
-       
+  <!-- News Channel Buttons -->
+  <div class="news-channels">
+    <button class="channel-btn" onclick="window.open('https://www.youtube.com/@aajtak', '_blank')">Aaj Tak</button>
+    <button class="channel-btn" onclick="window.open('https://www.youtube.com/@indiatoday', '_blank')">India Today</button>
+    <button class="channel-btn" onclick="window.open('https://www.youtube.com/@ndtv', '_blank')">NDTV</button>
+    <button class="channel-btn" onclick="window.open('https://www.youtube.com/@zeenews', '_blank')">Zee News</button>
+  </div>
 
-    <!-- News Container -->
-    <div id="news-container">
-
-        <!-- Aaj Tak News -->
-        <div class="news-channels">
-    <button class="channel-btn" onclick="window.open('https://www.youtube.com/@aajtak', '_blank')">
-        Aaj Tak
-     </button>
-    
-    <button class="channel-btn" onclick="window.open('https://www.youtube.com/@indiatoday', '_blank')">
-        India Today
-    </button>
-    <button class="channel-btn" onclick="window.open('https://www.youtube.com/@ndtv', '_blank')">
-        NDTV
-    </button>
-    <button class="channel-btn" onclick="window.open('https://www.youtube.com/@zeenews', '_blank')">
-    Zee News
-    </button>
-</div>
-
-
-        <!-- NDTV News -->
-        <div class="news-items ndtv" style="display:none;">
-            <div class="news-item" data-title="NDTV News 1">
-               <a href="https://www.youtube.com/@IndiaToday" target="_blank">
-        </iframe>
-                    <p>NDTV News: National Update</p>
-                </a>
-            </div>
-        </div>
-
-        <!-- India Today News -->
-        <div class="news-items india-today" style="display:none;">
-            <div class="news-item" data-title="India Today News 1">
-               <a href="https://www.youtube.com/@IndiaToday" target="_blank">
-        </iframe>
-                    <p>India Today: Global Headlines</p>
-                </a>
-            </div>
-        </div>
-
-        <!-- BBC News -->
-        <div class="news-items bbc" style="display:none;">
-            <div class="news-item" data-title="BBC News 1">
-               <a href="https://www.youtube.com/@IndiaToday" target="_blank">
-        </iframe>
-                    <p>BBC News: World Update</p>
-                </a>
-            </div>
-        </div>
-
-    </div>
-</section>
-<section id="newspapers">
-  <h2 style="text-align:center; color:#FF9800; margin-bottom:30px;">🗞️ Newspapers</h2>
-  
-  <div class="newspaper-container">
-
-    <!-- Times of India -->
-    <div class="newspaper-item" data-title="Times of India">
-      <a href="https://timesofindia.indiatimes.com/" target="_blank">
-        <img src="images/newspapers/timeofindia.png" alt="Times of India" style="width:150px; height:auto;">
+  <!-- Optional: Latest News Items -->
+  <div id="news-container" style="margin-top:20px;">
+    <!-- Example News Item -->
+    <div class="news-item" data-title="India Today Headlines">
+      <a href="https://www.youtube.com/@indiatoday" target="_blank">
+        <p>India Today: Global Headlines</p>
       </a>
-      <h3>Times of India</h3>
     </div>
-
-    <!-- The Hindu -->
-    <div class="newspaper-item" data-title="The Hindu">
-      <a href="https://www.thehindu.com/" target="_blank">
-        <img src="images/newspapers/thehindu.png" alt="The Hindu" style="width:150px; height:auto;">
+    <div class="news-item" data-title="Aaj Tak Headlines">
+      <a href="https://www.youtube.com/@aajtak" target="_blank">
+        <p>Aaj Tak: National Update</p>
       </a>
-      <h3>The Hindu</h3>
     </div>
-
-    <!-- Indian Express -->
-    <div class="newspaper-item" data-title="Indian Express">
-      <a href="https://indianexpress.com/" target="_blank">
-        <img src="images/newspapers/indianexpress.png" alt="Indian Express" style="width:150px; height:auto;">
-      </a>
-      <h3>Indian Express</h3>
-    </div>
-
-    <!-- Hindustan Times -->
-    <div class="newspaper-item" data-title="Hindustan Times">
-      <a href="https://www.hindustantimes.com/" target="_blank">
-        <img src="images/newspapers/hindustantimes.png" alt="Hindustan Times" style="width:150px; height:auto;">
-      </a>
-      <h3>Hindustan Times</h3>
-    </div>
-
   </div>
 </section>
 
-</section>
+<!-- NCERT Videos Section -->
 <section id="ncert-videos">
   <h2 style="text-align:center; color:#0099CC; margin-bottom:30px;">📘 NCERT Videos</h2>
 
@@ -384,28 +137,27 @@
       <!-- Math -->
       <div class="ncert-subject math">
           <div class="ncert-item" data-title="Algebra Basics">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/jmpUP1MaQ9Q?si=UsZ6_W6TimUS2kY7" title="Algebra Basics" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-              <h3>Algebra Basics</h3>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/jmpUP1MaQ9Q" title="Algebra Basics" frameborder="0" allowfullscreen></iframe>
+              <h3>Chapter 1: Algebra Basics</h3>
               <p><a href="pdfs/ncert/math/book1.pdf" target="_blank">Book PDF</a></p>
               <p><a href="pdfs/ncert/math/notes1.pdf" target="_blank">Class Notes</a></p>
               <p><a href="pdfs/ncert/math/practice1.pdf" target="_blank">Practice Questions</a></p>
           </div>
+
+          <div class="ncert-item" data-title="Geometry Intro">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_GEOMETRY" title="Geometry Intro" frameborder="0" allowfullscreen></iframe>
+              <h3>Chapter 2: Geometry Intro</h3>
+              <p><a href="pdfs/ncert/math/book2.pdf" target="_blank">Book PDF</a></p>
+              <p><a href="pdfs/ncert/math/notes2.pdf" target="_blank">Class Notes</a></p>
+              <p><a href="pdfs/ncert/math/practice2.pdf" target="_blank">Practice Questions</a></p>
+          </div>
       </div>
-<div class="ncert-item" data-title="New Video Title">
-    <iframe width="560" height="315" 
-       src="https://www.youtube.com/embed/gRRMSF0nB0c?si=boZ5CPOwcWKVZVQw"
-        title="New Video Title" frameborder="0" allowfullscreen></iframe>
-    <h3>New Video Title</h3>
-    <p><a href="pdfs/ncert/math/newbook.pdf" target="_blank">Book PDF</a></p>
-    <p><a href="pdfs/ncert/math/newnotes.pdf" target="_blank">Class Notes</a></p>
-    <p><a href="pdfs/ncert/math/newpractice.pdf" target="_blank">Practice Questions</a></p>
-</div>
 
       <!-- Science -->
       <div class="ncert-subject science" style="display:none;">
           <div class="ncert-item" data-title="Physics Chapter 1">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/udgrClXV26Y?si=kbKVEe9YGus_1cF9" title="Physics Chapter 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-              <h3>Physics Chapter 1</h3>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/udgrClXV26Y" title="Physics Chapter 1" frameborder="0" allowfullscreen></iframe>
+              <h3>Chapter 1: Physics Basics</h3>
               <p><a href="pdfs/ncert/science/book1.pdf" target="_blank">Book PDF</a></p>
               <p><a href="pdfs/ncert/science/notes1.pdf" target="_blank">Class Notes</a></p>
               <p><a href="pdfs/ncert/science/practice1.pdf" target="_blank">Practice Questions</a></p>
@@ -416,7 +168,7 @@
       <div class="ncert-subject history" style="display:none;">
           <div class="ncert-item" data-title="Ancient India">
               <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_HISTORY1" title="Ancient India" frameborder="0" allowfullscreen></iframe>
-              <h3>Ancient India</h3>
+              <h3>Chapter 1: Ancient India</h3>
               <p><a href="pdfs/ncert/history/book1.pdf" target="_blank">Book PDF</a></p>
               <p><a href="pdfs/ncert/history/notes1.pdf" target="_blank">Class Notes</a></p>
               <p><a href="pdfs/ncert/history/practice1.pdf" target="_blank">Practice Questions</a></p>
@@ -427,86 +179,87 @@
 </section>
 
 <script>
-// Tab Logic
-const buttons = document.querySelectorAll('.ncert-btn');
-const subjects = document.querySelectorAll('.ncert-subject');
+  // NCERT Tabs Logic
+  const ncertButtons = document.querySelectorAll('.ncert-btn');
+  const ncertSubjects = document.querySelectorAll('.ncert-subject');
 
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
+  ncertButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
       const subject = btn.getAttribute('data-subject');
 
-      // Remove active class from all buttons
-      buttons.forEach(b => b.classList.remove('active'));
+      // Remove active class
+      ncertButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      // Show target subject, hide others
-      subjects.forEach(s => s.style.display = 'none');
+      // Show selected subject, hide others
+      ncertSubjects.forEach(s => s.style.display = 'none');
       document.querySelector('.ncert-subject.' + subject).style.display = 'block';
+    });
   });
-});
 </script>
 
 
-        
+    <!-- Fixed JS for NCERT Tabs -->
+    <script>
+        const ncertButtons = document.querySelectorAll('.ncert-btn');
+        const ncertSubjects = document.querySelectorAll('.ncert-subject');
 
-        <section id="hand-notes">
-    <h2 style="text-align:center; color:#3F51B5; margin-bottom:30px;">📝 Handwritten Notes</h2>
-    <div class="notes-container">
+        ncertButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.getAttribute('data-subject');
 
-        <!-- Note 1 -->
-        <div class="note-item" data-title="Math Notes Chapter 1">
-            <a href="pdfs/hand_notes/math_ch1.pdf" target="_blank">
-                <img src="images/hand_notes/math_ch1.jpg" alt="Math Notes Chapter 1">
-            </a>
-            <h3>Math Notes Chapter 1</h3>
-        </div>
+                // Hide all subjects
+                ncertSubjects.forEach(sub => sub.style.display = 'none');
+                // Show target subject
+                document.querySelector('.ncert-subject.' + target).style.display = 'block';
 
-        <!-- Note 2 -->
-        <div class="note-item" data-title="History Notes Ancient">
-            <a href="pdfs/hand_notes/history_ancient.pdf" target="_blank">
-                <img src="images/hand_notes/history_ancient.jpg" alt="History Notes Ancient">
-            </a>
-            <h3>History Notes Ancient</h3>
-        </div>
-
-        <!-- Note 3 -->
-        <div class="note-item" data-title="Geography Notes Rivers">
-            <a href="pdfs/hand_notes/geography_rivers.pdf" target="_blank">
-                <img src="images/hand_notes/geography_rivers.jpg" alt="Geography Notes Rivers">
-            </a>
-            <h3>Geography Notes Rivers</h3>
-        </div>
-
-    </div>
+                // Remove active class from all buttons
+                ncertButtons.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+            });
+        });
+    </script>
 </section>
 
+        <!-- Newspapers Section -->
+        <section id="newspapers">
+            <h2 style="text-align:center; color:#FF9800; margin-bottom:30px;">🗞️ Newspapers</h2>
+            <div class="newspaper-container">
+                <div class="newspaper-item" data-title="Times of India">
+                    <a href="https://timesofindia.indiatimes.com/" target="_blank">
+                        <img src="images/newspapers/timeofindia.png" alt="Times of India" style="width:150px; height:auto;">
+                    </a>
+                    <h3>Times of India</h3>
+                </div>
+                <div class="newspaper-item" data-title="The Hindu">
+                    <a href="https://www.thehindu.com/" target="_blank">
+                        <img src="images/newspapers/thehindu.png" alt="The Hindu" style="width:150px; height:auto;">
+                    </a>
+                    <h3>The Hindu</h3>
+                </div>
+                <div class="newspaper-item" data-title="Indian Express">
+                    <a href="https://indianexpress.com/" target="_blank">
+                        <img src="images/newspapers/indianexpress.png" alt="Indian Express" style="width:150px; height:auto;">
+                    </a>
+                    <h3>Indian Express</h3>
+                </div>
+                <div class="newspaper-item" data-title="Hindustan Times">
+                    <a href="https://www.hindustantimes.com/" target="_blank">
+                        <img src="images/newspapers/hindustantimes.png" alt="Hindustan Times" style="width:150px; height:auto;">
+                    </a>
+                    <h3>Hindustan Times</h3>
+                </div>
+            </div>
+        </section>
     </main>
+  
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 SumitStudyIQ</p>
     </footer>
 
     <script src="script.js"></script>
-    <script src="script.js"></script>
-<!-- Login Button -->
-<button id="loginWithGoogle">Login with Google</button>
-
-<!-- Admin Panel (ye sirf login ke baad dikhega) -->
-<div id="adminPanel" style="display:none;">
-  <h2>Admin Panel</h2>
-  <p>Yahan se aap PDFs, Notes, Videos upload/add kar sakte ho.</p>
-</div>
-
-
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
-<script src="script.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
-
-<!-- Apne HTML ke end me, </body> se pehle -->
-<script src="script.js"></script>
-
-
 </body>
 </html>
