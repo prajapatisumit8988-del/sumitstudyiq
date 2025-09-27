@@ -100,3 +100,22 @@ document.querySelectorAll(".coaching").forEach(coachingSection => {
         });
     });
 });
+const pdfViewer = document.getElementById('pdfViewer');
+const pdfFrame = document.getElementById('pdfFrame');
+const closePdf = document.getElementById('closePdf');
+
+const pdfLinks = document.querySelectorAll('.pdf-link');
+
+pdfLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        let pdfUrl = this.getAttribute('href');
+        pdfFrame.setAttribute('src', pdfUrl);
+        pdfViewer.style.display = 'flex';
+    });
+});
+
+closePdf.addEventListener('click', () => {
+    pdfFrame.setAttribute('src', '');
+    pdfViewer.style.display = 'none';
+});
