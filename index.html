@@ -5,41 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SumitStudyIQ</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body { font-family: Arial, sans-serif; margin:0; padding:0; }
-        header { background-color:#fff; padding:20px; text-align:center; position:sticky; top:0; z-index:1000; box-shadow:0 3px 10px rgba(0,0,0,0.1); border-bottom:2px solid #0099CC; }
-        header h1 { margin-bottom:10px; color:#0099CC; }
-        header input { width:70%; max-width:600px; padding:12px 15px; border-radius:25px; border:1px solid #0099CC; font-size:16px; transition:0.3s; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
-        h2 { margin-bottom:20px; }
-        .books-container, .current-container, .notes-container, .newspaper-container { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; }
-        .book-item, .current-item, .note-item, .newspaper-item { width:200px; text-align:center; }
-        .book-item img, .current-item img, .note-item img, .newspaper-item img { width:100%; height:auto; border-radius:5px; }
-        .channel-btn, .ncert-btn, .coaching-btn, .subject-btn { padding:8px 15px; margin:5px; border:none; border-radius:5px; cursor:pointer; background-color:#eee; }
-        .channel-btn:hover, .ncert-btn:hover, .coaching-btn:hover, .subject-btn:hover { background-color:#0099CC; color:white; }
-        .active { background-color:#0099CC; color:white; }
-        .chapter { margin:15px 0; }
-        .chapter iframe { display:block; margin-bottom:10px; width:100%; max-width:560px; height:315px; }
-        footer { text-align:center; padding:20px; background:#f2f2f2; margin-top:30px; }
-        /* Class Videos */
-        .coaching-tabs, .subject-tabs { text-align:center; margin-bottom:10px; }
-        .coaching-tabs img, .subject-tabs img { vertical-align:middle; height:25px; margin-right:5px; }
-    </style>
 </head>
-
 <body>
     <!-- Header -->
     <header>
         <h1>SumitStudyIQ</h1>
-        <div class="search-container">
-   
-</div>
-
+        <input type="text" id="searchInput" placeholder="Search books, notes, videos...">
     </header>
 
+    <!-- Navigation Tabs -->
+    <nav class="tabs">
+        <button class="tab-btn active" data-section="books-section">📚 Books</button>
+        <button class="tab-btn" data-section="current-section">📰 Current Affairs</button>
+        <button class="tab-btn" data-section="notes-section">📝 Handwritten Notes</button>
+        <button class="tab-btn" data-section="news-section">🗞️ News</button>
+        <button class="tab-btn" data-section="newspapers-section">📰 Newspapers</button>
+        <button class="tab-btn" data-section="ncert-section">📑 NCERT</button>
+        <button class="tab-btn" data-section="videos-section">🎥 Videos</button>
+        <button class="tab-btn" data-section="coaching-section">🎓 Coaching Videos</button>
+    </nav>
+
+    <!-- Sections -->
     <main>
         <!-- Books Section -->
-        <section id="books">
-            <h2 style="text-align:center; color:#4CAF50;">📚 Books</h2>
+        <section id="books-section" class="section active">
+            <h2>📚 Books</h2>
             <div class="books-container">
                 <div class="book-item" data-title="UPSC Book 1">
                     <a href="https://drive.google.com/file/d/1mZwj5ccqfJr7JwQsR0zoqlu-fkYkfg29/view?usp=drive_link" target="_blank">
@@ -48,9 +38,9 @@
                     <h3>UPSC Book khan sir</h3>
                 </div>
                 <div class="book-item" data-title="UPSC Book 2">
-                   <a href=https://drive.google.com/file/d/1mZwj5ccqfJr7JwQsR0zoqlu-fkYkfg29/view?usp=sharing" class="pdf-link">Math PDF</a>
-                   <p><a>  <img src="images/books/book1.jpg" ></a></p>
-                   <h3>UPSC Book 2</h3>
+                    <a href="https://drive.google.com/file/d/1mZwj5ccqfJr7JwQsR0zoqlu-fkYkfg29/view?usp=sharing" class="pdf-link">Math PDF</a>
+                    <p><img src="images/books/book1.jpg"></p>
+                    <h3>UPSC Book 2</h3>
                 </div>
                 <div class="book-item" data-title="History Book">
                     <a href="pdfs/books/book3.pdf" target="_blank">
@@ -62,8 +52,8 @@
         </section>
 
         <!-- Current Affairs Section -->
-        <section id="current-affairs">
-            <h2 style="text-align:center; color:#FF5722;">📰 Current Affairs</h2>
+        <section id="current-section" class="section">
+            <h2>📰 Current Affairs</h2>
             <div class="current-container">
                 <div class="current-item" data-title="Current Affairs September 2025">
                     <a href="pdfs/current_affairs/september2025.pdf" target="_blank">
@@ -87,8 +77,8 @@
         </section>
 
         <!-- Handwritten Notes Section -->
-        <section id="hand-notes">
-            <h2 style="text-align:center; color:#3F51B5;">📝 Handwritten Notes</h2>
+        <section id="notes-section" class="section">
+            <h2>📝 Handwritten Notes</h2>
             <div class="notes-container">
                 <div class="note-item" data-title="Math Notes Chapter 1">
                     <a href="pdfs/hand_notes/math_ch1.pdf" target="_blank">
@@ -112,9 +102,9 @@
         </section>
 
         <!-- News Section -->
-        <section id="news">
-            <h2 style="text-align:center; color:#009688;">📰 News</h2>
-            <div class="news-channels" style="text-align:center; margin-bottom:15px;">
+        <section id="news-section" class="section">
+            <h2>📰 News</h2>
+            <div class="news-channels">
                 <button class="channel-btn" onclick="window.open('https://www.youtube.com/@aajtak', '_blank')">Aaj Tak</button>
                 <button class="channel-btn" onclick="window.open('https://www.youtube.com/@indiatoday', '_blank')">India Today</button>
                 <button class="channel-btn" onclick="window.open('https://www.youtube.com/@ndtv', '_blank')">NDTV</button>
@@ -122,152 +112,9 @@
             </div>
         </section>
 
-        <!-- NCERT Videos Section -->
-        <section id="ncert-videos">
-            <h2 style="text-align:center; color:#0099CC;">📘 NCERT Videos</h2>
-            <div class="ncert-subject-buttons" style="text-align:center; margin-bottom:10px;">
-                <button class="ncert-btn active" data-subject="math">Math</button>
-                <button class="ncert-btn" data-subject="science">Science</button>
-                <button class="ncert-btn" data-subject="history">History</button>
-            </div>
-            <div class="ncert-container">
-                <div class="ncert-subject math">
-                    <div class="ncert-item">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/jmpUP1MaQ9Q" allowfullscreen></iframe>
-                        <h3>Chapter 1: Algebra Basics</h3>
-                        
-                    </div>
-                </div>
-                <div class="ncert-subject science" style="display:none;">
-                    <div class="ncert-item">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/udgrClXV26Y" allowfullscreen></iframe>
-                        <h3>Chapter 1: Physics Basics</h3>
-                        <p><a href="pdfs/ncert/science/book1.pdf" target="_blank">Book PDF</a></p>
-                    </div>
-                </div>
-                <div class="ncert-subject history" style="display:none;">
-                    <div class="ncert-item">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_HISTORY1" allowfullscreen></iframe>
-                        <h3>Chapter 1: Ancient India</h3>
-                        <p><a href="pdfs/ncert/history/book1.pdf" target="_blank">Book PDF</a></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Class Videos Section -->
-        <section id="class-videos">
-            <h2 style="text-align:center; color:#0099CC;">🎓 Coaching Videos</h2>
-            <div class="coaching-tabs">
-                <button class="coaching-btn active" data-coaching="drishti">
-                    <img src="images/coaching/drishti.png" alt="Drishti IAS"> Drishti IAS
-                </button>
-                <button class="coaching-btn" data-coaching="pw">
-                    <img src="images/coaching/pw.png" alt="PW"> PW
-                </button>
-                <button class="coaching-btn" data-coaching="khan">
-                    <img src="images/coaching/khan.png" alt="Khan Global"> Khan Global
-                </button>
-                <button class="coaching-btn" data-coaching="vision">
-                    <img src="images/coaching/vision.png" alt="Vision IAS"> Vision IAS
-                </button>
-            </div>
-
-            <div class="coaching-content">
-                <!-- Drishti IAS -->
-                <div class="coaching drishti">
-                    <div class="subject-tabs">
-                        <button class="subject-btn active" data-subject="drishti-math">Math</button>
-                        <button class="subject-btn" data-subject="drishti-history">History</button>
-                    </div>
-                    <div class="subject-content">
-                        <div class="subject drishti-math">
-                            <div class="chapter">
-                                <p>Chapter 1: Algebra</p>
-                                <iframe src="https://www.youtube.com/embed/VIDEO_ID1" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="subject drishti-history" style="display:none;">
-                            <div class="chapter">
-                                <p>Chapter 1: Ancient India</p>
-                                <iframe src="https://www.youtube.com/embed/VIDEO_ID2" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PW -->
-                <div class="coaching pw" style="display:none;">
-                    <div class="subject-tabs">
-                        <button class="subject-btn active" data-subject="pw-math">Math</button>
-                        <button class="subject-btn" data-subject="pw-science">Science</button>
-                    </div>
-                    <div class="subject-content">
-                        <div class="subject pw-math">
-                            <div class="chapter">
-                                <p>Chapter 1: Algebra</p>
-                                <iframe src="https://www.youtube.com/embed/VIDEO_ID3" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="subject pw-science" style="display:none;">
-                            <div class="chapter">
-                                <p>Chapter 1: Physics Basics</p>
-                                <iframe src="https://www.youtube.com/embed/VIDEO_ID4" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Khan Global -->
-                <div class="coaching khan" style="display:none;">
-                    <div class="subject-tabs">
-                        <button class="subject-btn active" data-subject="khan-history">History</button>
-                        <button class="subject-btn" data-subject="khan-geography">Geography</button>
-                    </div>
-                    <div class="subject-content">
-                        <div class="subject khan-history">
-                            <div class="chapter">
-                                <p>Chapter 1: Medieval India</p>
-                                <iframe src="https://www.youtube.com/embed/VIDEO_ID5" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="subject khan-geography" style="display:none;">
-                            <div class="chapter">
-                                <p>Chapter 1: Rivers</p>
-                                <iframe src="https://www.youtube.com/embed/VIDEO_ID6" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Vision IAS -->
-                <div class="coaching vision" style="display:none;">
-                    <div class="subject-tabs">
-                        <button class="subject-btn active" data-subject="vision-polity">Polity</button>
-                        <button class="subject-btn" data-subject="vision-economy">Economy</button>
-                    </div>
-                    <div class="subject-content">
-                        <div class="subject vision-polity">
-                            <div class="chapter">
-                                <p>Chapter 1: Constitution</p>
-                                <iframe src="https://www.youtube.com/embed/VIDEO_ID7" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="subject vision-economy" style="display:none;">
-                            <div class="chapter">
-                                <p>Chapter 1: Budget</p>
-                                <iframe src="https://www.youtube.com/embed/VIDEO_ID8" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
         <!-- Newspapers Section -->
-        <section id="newspapers">
-            <h2 style="text-align:center; color:#FF9800;">🗞️ Newspapers</h2>
+        <section id="newspapers-section" class="section">
+            <h2>📰 Newspapers</h2>
             <div class="newspaper-container">
                 <div class="newspaper-item">
                     <a href="https://timesofindia.indiatimes.com/" target="_blank">
@@ -283,60 +130,104 @@
                 </div>
             </div>
         </section>
+
+        <!-- NCERT Section -->
+        <section id="ncert-section" class="section">
+            <h2>📑 NCERT</h2>
+            <div class="ncert-subject-buttons">
+                <button class="ncert-btn active" data-subject="math">Math</button>
+                <button class="ncert-btn" data-subject="science">Science</button>
+                <button class="ncert-btn" data-subject="history">History</button>
+            </div>
+            <div class="ncert-container">
+                <div class="ncert-subject math">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/jmpUP1MaQ9Q" allowfullscreen></iframe>
+                    <h3>Chapter 1: Algebra Basics</h3>
+                </div>
+                <div class="ncert-subject science" style="display:none;">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/udgrClXV26Y" allowfullscreen></iframe>
+                    <h3>Chapter 1: Physics Basics</h3>
+                </div>
+                <div class="ncert-subject history" style="display:none;">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_HISTORY1" allowfullscreen></iframe>
+                    <h3>Chapter 1: Ancient India</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coaching Videos Section -->
+        <section id="coaching-section" class="section">
+            <h2>🎓 Coaching Videos</h2>
+            <div class="coaching-tabs">
+                <button class="coaching-btn active" data-coaching="drishti">Drishti IAS</button>
+                <button class="coaching-btn" data-coaching="pw">PW</button>
+                <button class="coaching-btn" data-coaching="khan">Khan Global</button>
+                <button class="coaching-btn" data-coaching="vision">Vision IAS</button>
+            </div>
+            <div class="coaching-content">
+                <!-- Drishti -->
+                <div class="coaching drishti">
+                    <div class="subject-tabs">
+                        <button class="subject-btn active" data-subject="drishti-math">Math</button>
+                        <button class="subject-btn" data-subject="drishti-history">History</button>
+                    </div>
+                    <div class="subject drishti-math">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID1" allowfullscreen></iframe>
+                    </div>
+                    <div class="subject drishti-history" style="display:none;">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID2" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- PW -->
+                <div class="coaching pw" style="display:none;">
+                    <div class="subject-tabs">
+                        <button class="subject-btn active" data-subject="pw-math">Math</button>
+                        <button class="subject-btn" data-subject="pw-science">Science</button>
+                    </div>
+                    <div class="subject pw-math">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID3" allowfullscreen></iframe>
+                    </div>
+                    <div class="subject pw-science" style="display:none;">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID4" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- Khan -->
+                <div class="coaching khan" style="display:none;">
+                    <div class="subject-tabs">
+                        <button class="subject-btn active" data-subject="khan-history">History</button>
+                        <button class="subject-btn" data-subject="khan-geography">Geography</button>
+                    </div>
+                    <div class="subject khan-history">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID5" allowfullscreen></iframe>
+                    </div>
+                    <div class="subject khan-geography" style="display:none;">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID6" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- Vision -->
+                <div class="coaching vision" style="display:none;">
+                    <div class="subject-tabs">
+                        <button class="subject-btn active" data-subject="vision-polity">Polity</button>
+                        <button class="subject-btn" data-subject="vision-economy">Economy</button>
+                    </div>
+                    <div class="subject vision-polity">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID7" allowfullscreen></iframe>
+                    </div>
+                    <div class="subject vision-economy" style="display:none;">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID8" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2025 SumitStudyIQ</p>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        // NCERT Tabs
-        document.querySelectorAll('.ncert-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const subject = btn.dataset.subject;
-                document.querySelectorAll('.ncert-subject').forEach(s => s.style.display='none');
-                document.querySelector('.ncert-subject.'+subject).style.display='block';
-                document.querySelectorAll('.ncert-btn').forEach(b=>b.classList.remove('active'));
-                btn.classList.add('active');
-            });
-        });
-
-        // Coaching Tabs
-        document.querySelectorAll('.coaching-tabs .coaching-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const coachingName = btn.dataset.coaching;
-                document.querySelectorAll('.coaching-content .coaching').forEach(c => c.style.display = c.classList.contains(coachingName)?'block':'none');
-                document.querySelectorAll('.coaching-tabs .coaching-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                // Reset first subject tab
-                const subjects = document.querySelector(`.coaching.${coachingName}`).querySelectorAll('.subject');
-                subjects.forEach((s,i)=> s.style.display=i===0?'block':'none');
-                const subjectBtns = document.querySelector(`.coaching.${coachingName}`).querySelectorAll('.subject-btn');
-                subjectBtns.forEach((b,i)=>b.classList.toggle('active',i===0));
-            });
-        });
-
-        // Subject Tabs
-        document.querySelectorAll('.subject-tabs .subject-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const subjectName = btn.dataset.subject;
-                const parentCoaching = btn.closest('.coaching');
-                parentCoaching.querySelectorAll('.subject').forEach(s => s.style.display = s.classList.contains(subjectName)?'block':'none');
-                parentCoaching.querySelectorAll('.subject-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-            });
-        });
-    </script>
-    <!-- PDF Viewer Modal -->
-<div id="pdfViewer" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000;">
-    <div style="position:relative; width:80%; height:90%; background:#fff; border-radius:10px; overflow:hidden;">
-        <button id="closePdf" style="position:absolute; top:10px; right:10px; padding:5px 10px; z-index:10; cursor:pointer;">Close</button>
-        <iframe id="pdfFrame" src="" style="width:100%; height:100%; border:none;"></iframe>
-    </div>
-</div>
-
+    <script src="script.js"></script>
 </body>
 </html>
