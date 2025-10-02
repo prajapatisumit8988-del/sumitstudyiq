@@ -1,15 +1,19 @@
 /* General Styles */
 body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f5f5f5; color:#333; transition:0.3s; }
 header { background:#fff; padding:20px; text-align:center; position:sticky; top:0; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+header h1 { margin-top: 0; margin-bottom: 10px; }
 input#searchInput { width:95%; max-width:500px; padding:10px; margin:10px auto; display:block; border:1px solid #ccc; border-radius:5px; font-size:16px; transition:0.3s; }
 input#searchInput:focus { outline:none; border-color:#1a73e8; }
+/* Search Input के पैरेंट को relative पोजीशनिंग दें ताकि हिस्ट्री लिस्ट सही जगह पर दिखे */
+header { position: relative; } 
 
 /* Dark Mode */
 body.dark-mode { background:#1e1e1e; color:#f0f0f0; }
 body.dark-mode a { color:#8ab4f8; }
+body.dark-mode header { background: #2c2c2c; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); }
 
 /* Tabs Menu */
-.tabs { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin:20px 0; }
+.tabs { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin:20px 0; padding: 0 10px; }
 .tab-btn { padding:10px 15px; border:none; background:#f0f0f0; cursor:pointer; border-radius:5px; transition:0.3s; }
 .tab-btn:hover { background:#ddd; }
 .tab-btn.active { background:#007bff; color:white; }
@@ -17,21 +21,140 @@ body.dark-mode a { color:#8ab4f8; }
 /* Sections */
 .section { display:none; padding:20px; border:1px solid #ddd; margin:10px; border-radius:5px; background:#fafafa; }
 .section.active { display:block; }
+body.dark-mode .section { background: #222; border-color: #444; }
+
+
+/* --- GRID LAYOUT for Content Containers --- */
+.books-container,
+.current-container,
+.notes-container,
+.newspaper-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 10px 0; 
+}
 
 /* Video / Book / Note Items */
-.book-item, .note-item, .current-item, .newspaper-item, .ncert-subject, .videos .item { margin:10px; padding:15px; border:1px solid #ddd; border-radius:5px; background:#fff; transition:0.2s; }
+.book-item, .note-item, .current-item, .newspaper-item, .ncert-subject, .videos .item { 
+    padding:15px; border:1px solid #ddd; border-radius:5px; background:#fff; transition:0.2s; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+}
 .book-item:hover, .note-item:hover, .current-item:hover, .newspaper-item:hover, .ncert-subject:hover, .videos .item:hover { transform:scale(1.02); border-color:#1a73e8; }
-body.dark-mode .book-item, body.dark-mode .note-item, body.dark-mode .current-item, body.dark-mode .newspaper-item, body.dark-mode .ncert-subject, body.dark-mode .videos .item { background:#2c2c2c; color:#f0f0f0; border-color:#555; }
+body.dark-mode .book-item, body.dark-mode .note-item, body.dark-mode .current-item, body.dark-mode .newspaper-item, body.dark-mode .ncert-subject { background:#2c2c2c; color:#f0f0f0; border-color:#555; }
+
+.book-item img, .current-item img, .note-item img, .newspaper-item img {
+    width: 100%; 
+    max-width: 120px; 
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
 
 /* Buttons */
 button, .subject-btn, .ncert-btn, .channel-btn { padding:8px 15px; margin:5px; border:none; border-radius:5px; cursor:pointer; background:#1a73e8; color:white; transition:0.3s; }
 button:hover, .subject-btn:hover, .ncert-btn:hover, .channel-btn:hover { background:#155ab6; }
 button.active, .subject-btn.active, .ncert-btn.active, .channel-btn.active { background:#0d3c91; }
 
-/* Responsive Grid */
-.videos { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; }
-@media(max-width:600px){ input#searchInput { width:90%; } .videos { grid-template-columns:1fr; } }
+/* NCERT/Coaching Sub-Tabs and Content */
+.coaching-tabs, .ncert-subject-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    justify-content: center;
+}
+body.dark-mode .coaching-tabs, body.dark-mode .ncert-subject-buttons { border-bottom-color: #555; }
+
+.subject-tabs { display: flex; gap: 10px; margin-bottom: 15px; justify-content: center; }
+
+.subject iframe, .ncert-subject iframe {
+    width: 100%;
+    max-width: 560px; /* मूल चौड़ाई को बनाए रखें */
+    display: block;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.coaching-content .subject h3, .ncert-container .ncert-subject h3 { text-align: center; margin-top: 10px; }
+
+/* News Channel Buttons */
+.news-channels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #333;
+    color: white;
+    margin-top: 30px;
+}
+body.dark-mode footer { background: #111; }
 
 /* Dark Mode Button */
-#darkModeToggle { position:fixed; top:10px; right:10px; padding:10px 15px; cursor:pointer; border-radius:5px; border:none; background:#1a73e8; color:#fff; z-index:1000; transition:0.3s; }
+#darkModeToggle { position:absolute; top:25px; right:20px; padding:10px 15px; cursor:pointer; border-radius:5px; border:none; background:#1a73e8; color:#fff; z-index:1001; transition:0.3s; }
 #darkModeToggle:hover { background:#155ab6; }
+
+/* --- UNIQUE FEATURE: Search History Styles --- */
+.search-history-list {
+    position: absolute;
+    width: 95%; 
+    max-width: 500px;
+    left: 50%;
+    transform: translateX(-50%); 
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 999; 
+    display: none; 
+}
+
+.search-history-list .history-item {
+    padding: 10px;
+    cursor: pointer;
+    text-align: left;
+    color: #444;
+    transition: background-color 0.2s;
+}
+
+.search-history-list .history-item:hover {
+    background: #f0f0f0;
+}
+
+/* Dark Mode Support for History */
+body.dark-mode .search-history-list {
+    background: #2c2c2c;
+    border-color: #555;
+}
+
+body.dark-mode .search-history-list .history-item {
+    color: #f0f0f0;
+}
+
+body.dark-mode .search-history-list .history-item:hover {
+    background: #444;
+}
+
+/* Responsive Grid Adjustments */
+@media(max-width:768px){
+    #darkModeToggle { position: static; margin-top: 10px; }
+    header { padding-bottom: 10px; }
+    .tabs { justify-content: start; }
+    .book-item, .current-item, .note-item, .newspaper-item { padding: 10px; }
+}
