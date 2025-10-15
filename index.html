@@ -1,161 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SumitStudyIQ</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumitstudyiq - Your UPSC Success Partner</title>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-
-<header>
-    <h1>SumitStudyIQ</h1>
-    <input type="text" id="searchInput" placeholder="Search books, notes, videos...">
-    <button id="darkModeToggle">🌙 Dark Mode</button>
-</header>
-
-<!-- Tabs -->
-<nav class="tabs">
-    <button class="tab-btn active" data-section="books-section">📚 Books</button>
-    <button class="tab-btn" data-section="current-section">📰 Current Affairs</button>
-    <button class="tab-btn" data-section="notes-section">📝 Notes</button>
-    <button class="tab-btn" data-section="ncert-section">📑 NCERT</button>
-    <button class="tab-btn" data-section="videos-section">🎥 Videos</button>
-    <button class="tab-btn" data-section="saved-section">💾 Saved</button>
-    <button class="tab-btn" data-section="news-section">🗞️ Newspaper</button>
-    <button class="tab-btn" data-section="quiz-section">❓ Quiz</button>
-</nav>
-
-<main>
-
-<!-- ------------------- Books Section ------------------- -->
-<section id="books-section" class="section active">
-    <h2>📚 Books</h2>
-    <div class="books-container">
-        <!-- Upload your book PDFs in /pdfs/books/ and images in /images/books/ -->
-        <div class="book-item" data-title="UPSC Book 1">
-            <a href="https://drive.google.com/file/d/1iWjoMolJ0Fjisj-UaQRrc5uHOdC_l0NI/view?usp=drive_link" target="_blank"><img src="images/ncertbook/ClassVIPolity.jpg" alt="ncert"></a>
-            <h3>ncert</h3>
+    <header class="main-header">
+        <div class="header-main-content">
+            <h1>SumitStudyIQ: Where Preparation Meets Strategy</h1>
+            <p>UPSC - Civil Services Examination (The Most Comprehensive Study Hub)</p>
         </div>
-    </div>
-</section>
-
-<!-- ------------------- Current Affairs Section ------------------- -->
-<section id="current-section" class="section">
-    <h2>📰 Current Affairs</h2>
-    <div class="current-container">
-        <!-- Upload PDFs in /pdfs/current/ and images in /images/current/ -->
-        <div class="current-item" data-title="Current Affair 1">
-            <a href="pdfs/current/ca1.pdf" target="_blank"><img src="images/current/ca1.jpg" alt="CA 1"></a>
-            <h3>Current Affair 1</h3>
+        
+        <div class="search-and-mode">
+            <input type="text" id="searchInput" placeholder="Search books, notes, videos..." aria-label="Search resources">
+            <button id="darkModeToggle">🌙 Dark Mode</button>
         </div>
-    </div>
-</section>
 
-<!-- ------------------- Notes Section ------------------- -->
-<section id="notes-section" class="section">
-    <h2>📝 Notes</h2>
-    <div class="notes-container">
-        <!-- Upload PDFs in /pdfs/notes/ and images in /images/notes/ -->
-        <div class="note-item" data-title="Math Notes Ch1">
-            <a href="pdfs/notes/math_ch1.pdf" target="_blank"><img src="images/notes/math_ch1.jpg" alt="Math Ch1"></a>
-            <h3>Math Notes Ch1</h3>
-        </div>
-    </div>
-</section>
+        <nav class="main-nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="Meterial/Book.html">All Books</a>
+            <a href="Meterial/Current_Affairs.html">Current Affairs</a>
+            <a href="Meterial/NCERT.html">Only NCERT Video</a>
+            <a href="Meterial/News.html">News</a>
+            <a href="Meterial/Newspaper.html">Newspaper</a>
+            <a href="Meterial/Notes.html">Notes</a>
+            <a href="Meterial/Quiz.html">Quiz</a>
+            <a href="Meterial/Videos.html">Video</a>
+        </nav>
+    </header>
+    
+    <main>
+        
+        <section class="section hero-section animated-banner">
+            <div class="hero-content">
+                <h2>Dream. Strategy. Achieve.</h2>
+                <p>Unlock structured, ad-free, and up-to-date resources designed for UPSC excellence. Stop searching, start studying.</p>
+                <a href="Meterial/Book.html" class="cta-button">
+                    Start Your Preparation Today →
+                </a>
+            </div>
+        </section>
 
-<!-- ------------------- NCERT Section ------------------- -->
-<section id="ncert-section" class="section">
-    <h2>📑 NCERT</h2>
-    <div class="ncert-subject-buttons">
-        <button class="ncert-btn active" data-subject="math">Math</button>
-        <button class="ncert-btn" data-subject="science">Science</button>
-    </div>
-    <div class="ncert-container">
-        <!-- Replace iframe src with your NCERT video links -->
-        <div class="ncert-subject math">
-            <iframe src="https://www.youtube.com/embed/jmpUP1MaQ9Q" allowfullscreen></iframe>
-            <h3>Math Chapter 1</h3>
-        </div>
-        <div class="ncert-subject science" style="display:none;">
-            <iframe src="https://www.youtube.com/embed/udgrClXV26Y" allowfullscreen></iframe>
-            <h3>Science Chapter 1</h3>
-        </div>
-    </div>
-</section>
+        <section class="section">
+            <h2>🎯 Quick Access: Today's Focus</h2>
+            <div class="books-container">
+                
+                <div class="book-item quick-link" data-title="Daily Current Affairs">
+                    <a href="Meterial/Current_Affairs.html">
+                        <span class="icon">📰</span>
+                        <h3>Current Affairs</h3>
+                        <p>Daily analysis & updates.</p>
+                    </a>
+                </div>
+                
+                <div class="book-item quick-link" data-title="Practice Quiz">
+                    <a href="Meterial/Quiz.html">
+                        <span class="icon">❓</span>
+                        <h3>Daily Quiz</h3>
+                        <p>Test your knowledge.</p>
+                    </a>
+                </div>
+                
+                <div class="book-item quick-link" data-title="Essential Books">
+                    <a href="Meterial/Book.html">
+                        <span class="icon">📚</span>
+                        <h3>All Books</h3>
+                        <p>Access the core reading list.</p>
+                    </a>
+                </div>
+                
+                <div class="book-item quick-link" data-title="Strategy Notes">
+                    <a href="Meterial/Notes.html">
+                        <span class="icon">📝</span>
+                        <h3>Notes Hub</h3>
+                        <p>Subject-wise compiled notes.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-<!-- ------------------- Videos Section ------------------- -->
-<section id="videos-section" class="section">
-    <h2>🎥 Videos</h2>
-    <div class="videos-container">
-        <!-- Add videos iframe here -->
-        <div class="videos item" data-title="History Video 1">
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
-            <h3>History Video 1</h3>
-        </div>
-    </div>
-</section>
+        <section class="section">
+            <h2>🚀 Why SumitStudyIQ is Unique?</h2>
+            <div class="books-container">
+                <div class="book-item feature-card" data-title="Structured">
+                    <span class="feature-icon">✅</span>
+                    <h3>Syllabus-Oriented</h3>
+                    <p>Resources are categorized exactly as per the latest UPSC syllabus, saving your time.</p>
+                </div>
+                <div class="book-item feature-card" data-title="AdFree">
+                    <span class="feature-icon">🚫</span>
+                    <h3>Ad-Free Learning</h3>
+                    <p>Focus entirely on your studies without distracting advertisements.</p>
+                </div>
+                <div class="book-item feature-card" data-title="Updated">
+                    <span class="feature-icon">⏱️</span>
+                    <h3>Instant Updates</h3>
+                    <p>Get the latest Current Affairs and News analysis instantly.</p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Sumitstudyiq. All Rights Reserved.</p>
+    </footer>
 
-<!-- ------------------- Saved Section ------------------- -->
-<section id="saved-section" class="section">
-    <h2>💾 Saved Items</h2>
-    <div class="saved-container">
-        <p>Your saved PDFs, Notes, and Videos will appear here.</p>
-    </div>
-</section>
-
-<!-- ------------------- Newspaper Section ------------------- -->
-<section id="news-section" class="section">
-    <h2>🗞️ Newspaper</h2>
-    <div class="newspaper-container">
-        <!-- Upload newspaper PDFs in /pdfs/newspaper/ and images in /images/newspaper/ -->
-        <div class="newspaper-item" data-title="The Hindu 09-Oct-2025">
-            <a href="pdfs/newspaper/hindu_091025.pdf" target="_blank"><img src="images/newspaper/hindu.jpg" alt="The Hindu"></a>
-            <h3>The Hindu 09-Oct-2025</h3>
-        </div>
-        <div class="newspaper-item" data-title="Times of India 09-Oct-2025">
-            <a href="pdfs/newspaper/toi_091025.pdf" target="_blank"><img src="images/newspaper/toi.jpg" alt="TOI"></a>
-            <h3>Times of India 09-Oct-2025</h3>
-        </div>
-    </div>
-</section>
-
-<div class="section" id="quiz-section">
-    <h2>Quiz Section</h2>
-
-    <!-- Subject Buttons -->
-    <div class="quiz-subject-buttons">
-        <button class="quiz-btn active" data-subject="math">Math</button>
-        <button class="quiz-btn" data-subject="history">History</button>
-        <button class="quiz-btn" data-subject="science">Science</button>
-    </div>
-
-    <!-- Date Selector -->
-    <div style="text-align:center; margin:15px 0;">
-        <label for="quiz-day">Select Date:</label>
-        <input type="date" id="quiz-day" value="">
-    </div>
-
-    <!-- Timer -->
-    <div id="quiz-timer">30</div>
-
-    <!-- Question & Options -->
-    <div id="quiz-container">
-        <div id="quiz-question"></div>
-        <div id="quiz-options"></div>
-    </div>
-
-    <!-- Skip Button -->
-    <button id="skip-btn">Skip</button>
-</div>
-
-
-</main>
-
-<footer>
-<p>&copy; 2025 SumitStudyIQ</p>
-</footer>
-
-<script src="script.js"></script>
+    <script src="script.js"></script> 
 </body>
 </html>

@@ -1,214 +1,129 @@
-document.addEventListener('DOMContentLoaded', () => {
+// ==================== 1. DARK MODE LOGIC ====================
 
-    // ------------------- SEARCH -------------------
+function initializeDarkMode() {
+    const darkModeBtn = document.getElementById('darkModeToggle');
+    if (!darkModeBtn) return;
+    
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        darkModeBtn.textContent = "☀️ Light Mode";
+    } else {
+        darkModeBtn.textContent = "🌙 Dark Mode";
+    }
+
+    darkModeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        
+        darkModeBtn.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+}
+
+// ==================== 2. SEARCH LOGIC ====================
+
+function initializeSearchLogic() {
     const searchInput = document.getElementById('searchInput');
+    if (!searchInput) return;
+
     searchInput.addEventListener('keyup', () => {
         const filter = searchInput.value.toLowerCase();
-        const items = document.querySelectorAll('.book-item, .note-item, .current-item, .newspaper-item, .ncert-subject, .videos .item');
+        
+        // सभी आइटम को फ़िल्टर करें जो वर्तमान पेज पर हैं
+        const items = document.querySelectorAll('.book-item, .note-item, .current-item, .newspaper-item, .video-item, .feature-card');
+        
         items.forEach(item => {
             const title = item.getAttribute('data-title') || item.querySelector('h3')?.textContent || "";
+            
             item.style.display = title.toLowerCase().includes(filter) ? '' : 'none';
         });
     });
+}
 
-    // ------------------- DARK MODE -------------------
-    const darkModeBtn = document.getElementById('darkModeToggle');
-    darkModeBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        darkModeBtn.textContent = document.body.classList.contains('dark-mode') ? "☀️ Light Mode" : "🌙 Dark Mode";
-    });
+// ==================== 3. MAIN INITIALIZATION ====================
 
-    // ------------------- TABS -------------------
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const sections = document.querySelectorAll('.section');
-    tabBtns.forEach(btn => btn.addEventListener('click', () => {
-        tabBtns.forEach(b=>b.classList.remove('active'));
-        sections.forEach(s=>s.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById(btn.dataset.section).classList.add('active');
-    }));
-
-    // ------------------- NCERT SUB-TABS -------------------
-    const ncertButtons = document.querySelectorAll('.ncert-btn');
-    const ncertSubjects = document.querySelectorAll('.ncert-subject');
-    ncertButtons.forEach(btn => btn.addEventListener('click', () => {
-        const subject = btn.dataset.subject;
-        ncertButtons.forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        ncertSubjects.forEach(s=>s.style.display=s.classList.contains(subject)?'block':'none');
-    }));
-
-    // ------------------- QUIZ FUNCTIONALITY -------------------
-    const quizData = {
-        math: {
-            1:[{q:"2+2=?", options:["3","4","5"], answer:1},{q:"5*3=?", options:["15","20","10"], answer:0}],
-            2:[{q:"7-2=?", options:["5","6","4"], answer:0}]
-        },
-        history:{
-            1:[{q:"Who was first President of India?", options:["Rajendra Prasad","Nehru","Gandhi"], answer:0}]
-        },
-        science:{
-            1:[{q:"Water formula?", options:["H2O","CO2","O2"], answer:0}]
-        }
-    };
-
-    let currentSubject='math', currentDay='1', currentQIndex=0;
-    const quizBtns = document.querySelectorAll('.quiz-btn');
-    const quizDaySelect = document.getElementById('quiz-day');
-    const quizQuestionDiv = document.getElementById('quiz-question');
-    const quizOptionsDiv = document.getElementById('quiz-options');
-    const timerSpan = document.getElementById('timer');
-    const skipBtn = document.getElementById('skip-btn');
-
-    let quizTimer, timeLeft=30;
-
-    function loadQuiz(){
-        const questions = quizData[currentSubject][currentDay] || [];
-        if(questions.length===0){
-            quizQuestionDiv.innerHTML="No questions for this day";
-            quizOptionsDiv.innerHTML="";
-            return;
-        }
-        if(currentQIndex>=questions.length) currentQIndex=0;
-        quizQuestionDiv.innerHTML=questions[currentQIndex].q;
-        quizOptionsDiv.innerHTML='';
-        questions[currentQIndex].options.forEach((opt,i)=>{
-            const btn=document.createElement('button');
-            btn.textContent=opt;
-            btn.addEventListener('click', ()=>{
-                nextQuestion();
-            });
-            quizOptionsDiv.appendChild(btn);
-        });
-        resetTimer();
-    }
-
-    function resetTimer(){
-        clearInterval(quizTimer);
-        timeLeft=30;
-        timerSpan.textContent=timeLeft;
-        quizTimer=setInterval(()=>{
-            timeLeft--;
-            timerSpan.textContent=timeLeft;
-            if(timeLeft<=0) nextQuestion();
-        },1000);
-    }
-
-    function nextQuestion(){
-        clearInterval(quizTimer);
-        currentQIndex++;
-        loadQuiz();
-    }
-
-    quizBtns.forEach(btn=>btn.addEventListener('click', ()=>{
-        quizBtns.forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        currentSubject=btn.dataset.subject;
-        currentQIndex=0;
-        loadQuiz();
-    }));
-
-    quizDaySelect.addEventListener('change', ()=>{
-        currentDay=quizDaySelect.value;
-        currentQIndex=0;
-        loadQuiz();
-    });
-
-    skipBtn.addEventListener('click', nextQuestion);
-
-    // initial load
-    quizBtns[0].click();
-
+document.addEventListener('DOMContentLoaded', () => {
+    initializeDarkMode();
+    initializeSearchLogic(); 
 });
-// ------------------- QUIZ FUNCTIONALITY -------------------
-const quizData = {
-    math: {
-        "2025-10-09":[
-            {q:"2+2=?", options:["3","4","5"], answer:1},
-            {q:"5*3=?", options:["15","20","10"], answer:0}
-        ],
-        "2025-10-10":[
-            {q:"7-3=?", options:["5","4","3"], answer:1}
-        ]
-    },
-    history:{
-        "2025-10-09":[
-            {q:"First President of India?", options:["Rajendra Prasad","Nehru","Gandhi"], answer:0}
-        ]
-    },
-    science:{
-        "2025-10-09":[
-            {q:"Water formula?", options:["H2O","CO2","O2"], answer:0}
-        ]
-    }
-};
+// ==================== 3. QUIZ LOGIC (For HTML-Based Quiz) ====================
 
-let currentSubject='math', currentDate=new Date().toISOString().split('T')[0], currentQIndex=0;
+function initializeQuiz() {
+    const quizForm = document.getElementById('quiz-form');
+    const submitBtn = document.getElementById('submit-quiz-btn');
+    const resultsEl = document.getElementById('quiz-results');
+    const scoreDisplayEl = document.getElementById('score-display');
+    const questionCards = document.querySelectorAll('.quiz-question-card');
 
-const quizBtns = document.querySelectorAll('.quiz-btn');
-const quizDateInput = document.getElementById('quiz-day');
-const quizQuestionDiv = document.getElementById('quiz-question');
-const quizOptionsDiv = document.getElementById('quiz-options');
-const timerSpan = document.getElementById('quiz-timer');
-const skipBtn = document.getElementById('skip-btn');
-
-quizDateInput.value = currentDate; // default today
-
-let quizTimer, timeLeft=30;
-
-function loadQuiz(){
-    const questions = quizData[currentSubject][currentDate] || [];
-    if(questions.length===0){
-        quizQuestionDiv.innerHTML="No questions for this date.";
-        quizOptionsDiv.innerHTML="";
-        return;
-    }
-    if(currentQIndex>=questions.length) currentQIndex=0;
-    quizQuestionDiv.innerHTML=questions[currentQIndex].q;
-    quizOptionsDiv.innerHTML='';
-    questions[currentQIndex].options.forEach((opt,i)=>{
-        const btn=document.createElement('button');
-        btn.textContent=opt;
-        btn.addEventListener('click', ()=>{
-            nextQuestion();
+    if (!quizForm || !submitBtn) return; 
+    
+    // --- स्कोर कैलकुलेट करने का फ़ंक्शन ---
+    function showResults() {
+        let numCorrect = 0;
+        const totalQuestions = questionCards.length;
+        
+        questionCards.forEach(card => {
+            const correctAnswer = card.getAttribute('data-answer');
+            const questionName = card.querySelector('input[type="radio"]').name;
+            const userAnswerEl = document.querySelector(`input[name="${questionName}"]:checked`);
+            
+            // पहले से कोई भी स्टाइलिंग हटा दें
+            card.style.backgroundColor = 'var(--bg-color-item)';
+            
+            if (userAnswerEl && userAnswerEl.value === correctAnswer) {
+                numCorrect++;
+                card.style.backgroundColor = '#d4edda'; // Light green for correct (Light Mode)
+            } else if (userAnswerEl) {
+                card.style.backgroundColor = '#f8d7da'; // Light red for incorrect (Light Mode)
+            } else {
+                 // अगर कोई उत्तर नहीं दिया गया
+                 card.style.backgroundColor = '#fff3cd'; // Light yellow
+            }
         });
-        quizOptionsDiv.appendChild(btn);
-    });
-    resetTimer();
+
+        // डार्क मोड के लिए सही/गलत रंग सेट करें
+        if (document.body.classList.contains('dark-mode')) {
+             questionCards.forEach(card => {
+                 if (card.style.backgroundColor.includes('d4edda')) { // If correct
+                     card.style.backgroundColor = '#1e3d24'; // Dark green
+                 } else if (card.style.backgroundColor.includes('f8d7da')) { // If incorrect
+                     card.style.backgroundColor = '#581c1c'; // Dark red
+                 } else if (card.style.backgroundColor.includes('fff3cd')) { // If skipped
+                     card.style.backgroundColor = '#38301c'; // Dark yellow
+                 }
+             });
+        }
+
+
+        // परिणाम दिखाएँ
+        scoreDisplayEl.innerHTML = `You scored ${numCorrect} out of ${totalQuestions} (Score: ${(numCorrect / totalQuestions * 100).toFixed(0)}%).`;
+        resultsEl.style.display = 'block';
+        submitBtn.style.display = 'none'; // सबमिट बटन छिपाएँ
+        
+        // फॉर्म को सबमिट होने से रोकें
+        return false;
+    }
+
+    // --- क्विज़ रीसेट करने का फ़ंक्शन ---
+    function resetQuiz() {
+        quizForm.reset(); // सभी रेडियो बटन को अनचेक करें
+        questionCards.forEach(card => {
+            card.style.backgroundColor = 'var(--bg-color-item)'; // रंग रीसेट करें
+        });
+        resultsEl.style.display = 'none';
+        submitBtn.style.display = 'block';
+    }
+
+    // Event Listeners
+    submitBtn.addEventListener('click', showResults);
+    document.getElementById('restart-quiz-btn')?.addEventListener('click', resetQuiz);
+
 }
 
-function resetTimer(){
-    clearInterval(quizTimer);
-    timeLeft=30;
-    timerSpan.textContent=timeLeft;
-    quizTimer=setInterval(()=>{
-        timeLeft--;
-        timerSpan.textContent=timeLeft;
-        if(timeLeft<=0) nextQuestion();
-    },1000);
-}
-
-function nextQuestion(){
-    clearInterval(quizTimer);
-    currentQIndex++;
-    loadQuiz();
-}
-
-quizBtns.forEach(btn=>btn.addEventListener('click', ()=>{
-    quizBtns.forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    currentSubject=btn.dataset.subject;
-    currentQIndex=0;
-    loadQuiz();
-}));
-
-quizDateInput.addEventListener('change', ()=>{
-    currentDate = quizDateInput.value;
-    currentQIndex=0;
-    loadQuiz();
+// Ensure the main initialization function calls the quiz initializer:
+document.addEventListener('DOMContentLoaded', () => {
+    initializeDarkMode();
+    initializeSearchLogic();
+    // CALL THE NEW QUIZ FUNCTION HERE
+    initializeQuiz(); 
 });
-
-skipBtn.addEventListener('click', nextQuestion);
-
-// initial load
-quizBtns[0].click();
