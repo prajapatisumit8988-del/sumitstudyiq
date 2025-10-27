@@ -1,176 +1,355 @@
 /* -------------------- CSS VARIABLES (Dark Mode Management) -------------------- */
 :root {
-    --bg-color-main: #f5f5f5;
-    --text-color-main: #333;
-    --bg-color-header: #fff;
-    --bg-color-section: #fafafa;
-    --bg-color-item: #fff;
-    --border-color-main: #ddd;
-    --primary-color: #1a73e8;
-    --primary-color-dark: #155ab6;
-    --shadow-light: rgba(0,0,0,0.1);
-    --link-color: #007bff;
-    /* New Variable for Hero */
-    --hero-bg-color: #1a73e8;
+    /* New Sleek Color Palette */
+    --bg-color-main: #f9fafb; /* Light Gray Background */
+    --text-color-main: #1f2937; /* Dark text for contrast */
+    --bg-color-header: #ffffff;
+    --bg-color-section: #ffffff;
+    --bg-color-item: #ffffff;
+    --border-color-main: #e5e7eb; 
+    --primary-color: #4f46e5; /* Deep, professional Indigo/Purple */
+    --primary-color-dark: #4338ca;
+    --accent-color: #f59e0b; /* Amber accent */
+    --shadow-light: rgba(0, 0, 0, 0.05); /* Minimal shadow */
+    --link-color: #4f46e5;
+    --hero-bg-color: #4f46e5;
+    
+    /* Quiz Colors */
+    --quiz-correct-bg: #dcfce7; /* Light Green */
+    --quiz-incorrect-bg: #fee2e2; /* Light Red */
+    --quiz-skipped-bg: #fef3c7; /* Light Yellow */
+    
+    /* NEW Timer Colors */
+    --timer-bar-bg: #e5e7eb;
+    --timer-bar-fill: #10b981; /* Green for timer */
+    --timer-text-color: #ef4444; /* Red for emphasis */
 }
 
 body.dark-mode {
-    --bg-color-main: #1e1e1e;
-    --text-color-main: #f0f0f0;
-    --bg-color-header: #2c2c2c;
-    --bg-color-section: #222;
-    --bg-color-item: #2c2c2c;
-    --border-color-main: #555;
-    --link-color: #8ab4f8;
-    --shadow-light: rgba(0,0,0,0.4);
-    --hero-bg-color: #0056b3; /* Darker blue for hero in dark mode */
+    --bg-color-main: #111827; /* Dark Blue Gray Background */
+    --text-color-main: #f9fafb;
+    --bg-color-header: #1f2937;
+    --bg-color-section: #1f2937;
+    --bg-color-item: #252c3c;
+    --border-color-main: #374151;
+    --link-color: #a5b4fc;
+    --shadow-light: rgba(255, 255, 255, 0.1);
+    --hero-bg-color: #1f2937;
+    
+    /* Dark Mode Quiz Colors */
+    --quiz-correct-bg: #103b18; 
+    --quiz-incorrect-bg: #4a1515; 
+    --quiz-skipped-bg: #4c3000; 
+    
+    /* Dark Mode Timer Colors */
+    --timer-bar-bg: #374151;
+    --timer-bar-fill: #059669; 
+    --timer-text-color: #f87171;
 }
 
-/* -------------------- GENERAL STYLES -------------------- */
+/* -------------------- UNIQUE OPENING DESIGN: PRELOADER (No Change) -------------------- */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color-header);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--border-color-main);
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader-content p {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+/* -------------------- GENERAL STYLES & HEADER (No Change) -------------------- */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0; padding: 0;
     background: var(--bg-color-main);
     color: var(--text-color-main);
-    transition: background 0.3s, color 0.3s;
+}
+#main-wrapper {
+    transition: opacity 0.5s ease-in; 
 }
 a { color: var(--link-color); text-decoration: none; }
+h1, h2, h3 { font-weight: 700; margin-top: 0; }
+header h1, header p { color: var(--text-color-main); }
+body.dark-mode header h1, body.dark-mode header p { color: var(--text-color-main); }
 
-/* -------------------- HEADER & NAVIGATION (Same as before - Cleaned) -------------------- */
+
 header {
     background: var(--bg-color-header);
-    padding: 20px;
+    padding: 12px 20px; 
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px var(--shadow-light);
+    box-shadow: 0 1px 3px var(--shadow-light); 
 }
 .main-header { width: 100%; max-width: 1200px; margin: 0 auto; }
-.header-main-content { margin-bottom: 10px; }
-header h1, header p { margin: 0; }
-.search-and-mode { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-input#searchInput { width: 100%; max-width: 500px; padding: 10px; margin: 0 10px; border: 1px solid var(--border-color-main); border-radius: 5px; font-size: 16px; background: var(--bg-color-item); color: var(--text-color-main); transition: 0.3s; }
-#darkModeToggle { padding: 10px 15px; cursor: pointer; border-radius: 5px; border: none; background: var(--primary-color); color: #fff; z-index: 1001; transition: 0.3s; flex-shrink: 0; }
-.main-nav { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 15px; padding-top: 10px; border-top: 1px solid var(--border-color-main); margin-top: 10px; }
-.main-nav a { padding: 8px 12px; border-radius: 5px; transition: 0.3s; background: #f0f0f0; color: var(--text-color-main); }
-.main-nav a:hover { background: #ddd; }
-.main-nav a.active { background: var(--primary-color); color: white; }
-body.dark-mode .main-nav a { background: #444; color: #f0f0f0; }
-body.dark-mode .main-nav a:hover { background: #555; }
-body.dark-mode .main-nav a.active { background: var(--primary-color); }
+.header-main-content { margin-bottom: 5px; }
+header h1 { font-size: 1.4em; font-weight: 800; } 
+header p { font-size: 0.8em; color: #6b7280; font-weight: 400; } 
+body.dark-mode header p { color: #9ca3af; }
 
-/* -------------------- UNIQUE HOME PAGE STYLES -------------------- */
+.search-and-mode { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-top: 10px; border-top: 1px solid var(--border-color-main); }
+
+input#searchInput { 
+    width: 100%; max-width: 400px; padding: 10px 15px; margin: 0 15px 0 0; 
+    border: 1px solid var(--border-color-main); 
+    border-radius: 6px; 
+    font-size: 14px; background: var(--bg-color-main); color: var(--text-color-main); 
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05); 
+}
+#darkModeToggle { 
+    padding: 8px 15px; cursor: pointer; border-radius: 6px; border: none; 
+    background: var(--primary-color); 
+    color: #fff; transition: 0.3s; 
+    font-weight: 600;
+}
+
+.main-nav { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 0 25px; padding-top: 5px; margin-top: 0; border-top: none; }
+.main-nav a { 
+    padding: 8px 0; 
+    color: var(--text-color-main); 
+    font-weight: 500;
+    position: relative;
+    transition: color 0.2s;
+}
+.main-nav a:hover { color: var(--primary-color); }
+.main-nav a.active { 
+    color: var(--primary-color); 
+    font-weight: 700;
+}
+.main-nav a.active::after { 
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+body.dark-mode .main-nav a.active { color: var(--primary-color); }
+
+/* -------------------- HERO SECTION (No Change) -------------------- */
+
+.hero-section.initial-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s; 
+}
 .hero-section {
     background: var(--hero-bg-color);
     color: white;
     text-align: center;
-    padding: 60px 20px;
-    border: none !important;
-    border-radius: 10px; /* More modern look */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow */
-    margin-bottom: 30px;
+    padding: 80px 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+    margin-bottom: 40px;
+    opacity: 1;
+    transform: translateY(0);
 }
-.hero-section h2 { font-size: 2.5em; margin-bottom: 10px; }
-.hero-section p { font-size: 1.2em; margin-bottom: 30px; }
+.hero-section h2 { font-size: 3em; margin-bottom: 15px; font-weight: 800; color: white; }
+.hero-section p { font-size: 1.25em; margin-bottom: 40px; font-weight: 300; opacity: 0.9; }
 
-/* Call To Action Button */
 .cta-button {
-    background: white;
-    color: var(--primary-color) !important;
-    padding: 15px 35px;
-    border-radius: 50px; /* Pill shape */
-    font-weight: bold;
-    text-decoration: none;
+    background: var(--accent-color); 
+    color: var(--text-color-main) !important;
+    padding: 14px 35px;
+    border-radius: 6px; 
+    font-weight: 700;
     transition: 0.3s;
     font-size: 1.1em;
-    display: inline-block;
+    box-shadow: 0 4px 10px rgba(245, 158, 11, 0.4);
 }
 .cta-button:hover {
-    background: #f0f0f0;
-    transform: scale(1.05);
+    background: #d97706;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(245, 158, 11, 0.6);
 }
 
-/* Home Page Item Icon Styles */
-.quick-link .icon, .feature-card .feature-icon {
-    font-size: 2.5em;
-    margin-bottom: 5px;
-    color: var(--primary-color); /* Highlight color */
-    transition: transform 0.3s;
+/* -------------------- MAIN CONTENT & SECTIONS (No Change) -------------------- */
+main { max-width: 1200px; margin: 30px auto; padding: 0 15px; }
+
+.section { 
+    padding: 30px; 
+    border-radius: 10px; 
+    background: var(--bg-color-section); 
+    border: 1px solid var(--border-color-main); 
+    margin-bottom: 30px; 
+    box-shadow: 0 2px 4px var(--shadow-light); 
 }
-.quick-link:hover .icon, .feature-card:hover .feature-icon {
-    transform: rotate(5deg) scale(1.1);
+.section h2 { 
+    font-size: 1.8em; 
+    margin-bottom: 25px; 
+    color: var(--primary-color); 
+    border-left: 5px solid var(--primary-color); 
+    padding-left: 10px;
 }
-.quick-link {
-    min-height: 180px; /* Slightly taller for visual balance */
-    justify-content: center;
-}
-.quick-link a { text-decoration: none; color: inherit; display: block; padding: 10px; }
+body.dark-mode .section h2 { color: var(--primary-color); }
 
-
-/* Animation for Hero Section */
-@keyframes slideIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-.animated-banner .hero-content {
-    animation: slideIn 1s ease-out forwards;
-}
-body.dark-mode .hero-section { background: var(--hero-bg-color); }
-body.dark-mode .cta-button { color: var(--hero-bg-color) !important; }
-
-
-/* -------------------- MAIN CONTENT & SECTIONS (Item Styles - Cleaned) -------------------- */
-main { max-width: 1200px; margin: 20px auto; padding: 0 15px; }
-
-.section { padding: 20px; border-radius: 8px; background: var(--bg-color-section); border: 1px solid var(--border-color-main); margin-bottom: 20px; }
-
-/* Grid Containers */
 .books-container, .current-container, .notes-container, .newspaper-container, .videos-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
     gap: 20px;
     padding: 10px 0;
 }
-
-/* Item Styles */
-.book-item, .note-item, .current-item, .newspaper-item, .video-item, .feature-card {
-    padding: 15px; 
+.book-item, .note-item, .current-item, .newspaper-item, .video-item, .feature-card, .quiz-question-card {
+    padding: 25px; 
     border: 1px solid var(--border-color-main); 
     border-radius: 8px; 
     background: var(--bg-color-item);
     text-align: center; 
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex; 
     flex-direction: column; 
     align-items: center; 
-    justify-content: flex-start;
-    min-height: 250px; 
+    min-height: 200px; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
 }
 
 .book-item:hover, .note-item:hover, .current-item:hover, .newspaper-item:hover, .video-item:hover, .feature-card:hover { 
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 16px var(--shadow-light); 
-    border-color: var(--primary-color); 
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1), 0 0 0 1px var(--primary-color); 
 }
 
-/* Item Images (Book Covers) */
-.book-item img {
-    width: 100%; max-width: 180px; height: 250px; 
-    object-fit: cover; border-radius: 5px; margin-bottom: 10px; 
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease-in-out;
+.quick-link .icon, .feature-card .feature-icon {
+    font-size: 2.2em; 
+    margin-bottom: 10px;
+    padding: 10px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 4px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background 0.3s;
 }
-.book-item:hover img { transform: scale(1.05); }
+.quick-link h3 { margin-top: 10px; margin-bottom: 5px; font-size: 1.2em; }
+.quick-link p { font-size: 0.9em; color: #6b7280; }
+body.dark-mode .quick-link p { color: #9ca3af; }
 
-/* -------------------- FOOTER -------------------- */
-footer { text-align: center; padding: 15px; background: #333; color: white; margin-top: 30px; }
-body.dark-mode footer { background: #111; }
 
-/* -------------------- RESPONSIVE -------------------- */
+/* -------------------- QUIZ SPECIFIC STYLES -------------------- */
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color-main);
+}
+.quiz-header h2 {
+    margin-bottom: 0;
+    padding-left: 0;
+    border-left: none;
+}
+.quiz-timer-container {
+    text-align: right;
+}
+#quiz-timer {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--timer-text-color);
+    margin-bottom: 5px;
+}
+.timer-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--timer-bar-bg);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.timer-bar-fill {
+    height: 100%;
+    width: 100%; /* Starts full */
+    background: var(--timer-bar-fill);
+    transition: width 0.1s linear; /* Smooth visual transition */
+}
+
+.quiz-question-card {
+    text-align: left;
+    min-height: auto;
+    padding: 20px 25px;
+    align-items: flex-start;
+}
+.quiz-question-card h3 {
+    width: 100%;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border-color-main);
+}
+.options-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+.options-list label {
+    display: block;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color-main);
+    margin-bottom: 8px;
+    transition: background 0.2s;
+    cursor: pointer; /* Added cursor pointer */
+}
+.options-list label:hover {
+    background: var(--bg-color-main);
+}
+#quiz-results {
+    border: 2px solid var(--primary-color);
+    display: none; 
+}
+
+/* -------------------- FOOTER & RESPONSIVE (No Change) -------------------- */
+footer { 
+    text-align: center; 
+    padding: 25px; 
+    background: #1f2937; 
+    color: #f9fafb; 
+    margin-top: 40px; 
+    font-size: 0.85em;
+    font-weight: 400;
+}
+body.dark-mode footer { background: #111827; }
+
 @media(max-width: 768px){
-    .main-header { padding: 0 10px; }
+    .hero-section h2 { font-size: 2.2em; }
     .search-and-mode { flex-direction: column; align-items: stretch; }
     input#searchInput { margin: 0 0 10px 0; max-width: 100%; }
     #darkModeToggle { width: 100%; }
-    .main-nav { justify-content: center; }
-    .hero-section h2 { font-size: 2em; }
+    .main-nav { justify-content: center; gap: 8px; }
+    .quiz-header { flex-direction: column; align-items: flex-start; }
+    .quiz-timer-container { text-align: left; width: 100%; margin-top: 15px; }
 }
