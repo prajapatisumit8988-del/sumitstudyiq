@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -9,6 +9,7 @@
 </head>
 <body>
 
+  <!-- HEADER -->
   <header class="upsc-header">
     <div class="brand">
       <a href="../../index.html" class="back">← Home</a>
@@ -22,103 +23,90 @@
     </div>
   </header>
 
-  <main class="container">
+  <!-- HERO -->
+  <section class="upsc-hero">
+    <div>
+      <h2>UPSC Preparation Hub</h2>
+      <p>Notes • Videos • PDFs • Handwritten Notes — arranged by syllabus & topics.</p>
+      <a href="#topics" class="btn">Explore Topics</a>
+    </div>
+  </section>
 
-    <section class="upsc-hero">
-      <div>
-        <h2>UPSC Preparation Hub</h2>
-        <p>Notes • Videos • PDFs • Handwritten Notes — arranged by syllabus & topics.</p>
-        <a href="#topics" class="btn">Explore Topics</a>
-      </div>
-      <div class="hero-illustration"></div>
-    </section>
+  <!-- FILTER BUTTONS -->
+  <section class="upsc-controls">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="notes">Notes</button>
+    <button class="filter-btn" data-filter="videos">Videos</button>
+     <button class="filter-btn" data-filter="handwritten">Handwritten Notes</button>
+    <a href="#syllabus" class="btn outline">Syllabus</a>
+  </section>
 
-    <section class="upsc-controls">
-      <div class="filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="notes">Notes</button>
-        <button class="filter-btn" data-filter="videos">Videos</button>
-        <button class="filter-btn" data-filter="pdfs">PDFs</button>
-        <button class="filter-btn" data-filter="handwritten">Handwritten Notes</button>
-      </div>
-      <div class="quick-links">
-        
-        <a href="#syllabus" class="btn outline">Syllabus</a>
-      </div>
-    </section>
+  <!-- TOPICS SECTION -->
+  <section id="topics" class="topics-grid">
 
-    <section id="topics" class="topics-grid">
-      <article class="topic card" data-type="notes">
-        <div class="thumb">🏛️</div>
-        <div class="meta">
-          <h3>Polity & Constitution</h3>
-          <p>Notes, important amendments, and MCQs.</p>
-          <div class="topic-actions">
-            <a href="https://drive.google.com/file/d/1EXAMPLE/view" target="_blank" class="btn small">Open PDF</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="topic card" data-type="videos">
-        <div class="thumb">🌍</div>
-        <div class="meta">
-          <h3>Geography (Physical)</h3>
-          <p>Core lectures and maps.</p>
-          <div class="topic-actions">
-            <a href="https://www.youtube.com/watch?v=EXAMPLE" target="_blank" class="btn small">Watch Video</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="topic card" data-type="pdfs">
-        <div class="thumb">📚</div>
-        <div class="meta">
-          <h3>Economy Basics</h3>
-          <p>Notes + downloadable PDFs.</p>
-          <div class="topic-actions">
-            <a href="https://drive.google.com/file/d/1EXAMPLE/view" target="_blank" class="btn small">Open PDF</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="topic card" data-type="handwritten">
-        <div class="thumb">✍️</div>
-        <div class="meta">
-          <h3>History (Handwritten Notes)</h3>
-          <p>Scanned handwritten notes from toppers.</p>
-          <div class="topic-actions">
-            <a href="https://drive.google.com/file/d/1EXAMPLE/view" target="_blank" class="btn small">Open PDF</a>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <section id="syllabus" class="syllabus">
-      <h2>UPSC Syllabus (Brief)</h2>
-      <div class="accordion">
-        <div class="acc-item">
-          <button class="acc-header">Prelims — GS Paper I</button>
-          <div class="acc-body">
-            <ul>
-              <li>History</li>
-              <li>Geography</li>
-              <li>Polity</li>
-              <li>Economy</li>
-            </ul>
-          </div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-header">Mains — Essay & GS Papers</button>
-          <div class="acc-body">
-            <p>Detailed syllabus with topic wise reading list and recommended PDFs.</p>
-          </div>
+    <!-- Notes -->
+    <article class="topic card" data-type="notes">
+      <div class="thumb">🏛️</div>
+      <div class="meta">
+        <h3>All Subject</h3>
+        <p>Important amendments, basic structure, MCQs & summaries.</p>
+        <div class="topic-actions">
+          <a href="notes/index.html" class="btn small">Open Notes</a>
         </div>
       </div>
-    </section>
+    </article>
 
-   
-  </main>
+    <!-- Videos -->
+    <article class="topic card" data-type="videos">
+      <div class="thumb">🎥</div>
+      <div class="meta">
+        <h3>UPSC Video Lectures</h3> 
+        <p>Watch detailed topic-wise lectures.</p>
+        <div class="topic-actions">
+         <a href="videos/index.html" class="btn small">Open Videos</a>
+        </div>
+      </div>
+    </article>
 
-  <script src="upsc-script.js"></script>
+  
+
+    <!-- Handwritten Notes -->
+    <article class="topic card" data-type="handwritten">
+      <div class="thumb">✍️</div>
+      <div class="meta">
+        <h3> Handwritten Notes</h3>
+        <p>Toppers’ handwritten notes (scanned format).</p>
+        <div class="topic-actions">
+         <a href="handwritten/index.html" class="btn small">Open Notes</a>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- SYLLABUS SECTION -->
+  <section id="syllabus" class="syllabus">
+    <h2>📘 UPSC Syllabus Overview</h2>
+    <div class="accordion">
+      <div class="acc-item">
+        <button class="acc-header">Prelims — GS Paper I</button>
+        <div class="acc-body">
+          <ul>
+            <li>History</li>
+            <li>Geography</li>
+            <li>Polity</li>
+            <li>Economy</li>
+          </ul>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-header">Mains — Essay & GS Papers</button>
+        <div class="acc-body">
+          <p>Includes topic-wise reading list and recommended sources.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+ <script src="upsc-script.js"></script>
 </body>
 </html>

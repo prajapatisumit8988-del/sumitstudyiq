@@ -280,3 +280,15 @@ body.dark .modal-content {
 .hidden {
   display: none;
 }
+.video-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px;
+}
+.video-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px var(--shadow);
+}
