@@ -1,127 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sumitstudyiq - Your UPSC Success Partner</title>
-    <meta name="description" content="SumitStudyIQ is your ultimate UPSC Civil Services Examination study hub. Access ad-free books, notes, daily current affairs, quizzes, and videos for strategic preparation.">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css"> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SumitStudyIQ | Smart Learning Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <div id="preloader">
-        <div class="loader-content">
-            <div class="spinner"></div>
-            <p>SumitStudyIQ: Loading Strategy...</p>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="spinner"></div>
+    <p>Preparing your learning space...</p>
+  </div>
+
+  <div id="main-wrapper" style="opacity:0;">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo">Sumit<span>StudyIQ</span></div>
+      <div class="header-actions">
+        <input type="text" id="searchInput" placeholder="Search your content...">
+        <button id="darkModeToggle">🌙</button>
+      </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="nav">
+      <a href="#" class="active">Home</a>
+      <a href="Material/UPSC.html">UPSC</a>
+      <a href="Material/SSC.html">SSC</a>
+      <a href="Material/Railway.html">Railway</a>
+      <a href="Material/Book.html">Books</a>
+      <a href="Material/Current_Affairs.html">Current Affairs</a>
+      <a href="Material/Quiz.html">Quiz</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-section initial-hidden">
+      <h2>📚 Welcome to SumitStudyIQ</h2>
+      <p>Your all-in-one platform for UPSC, SSC, and Railway preparation.</p>
+      <a href="#exam-hub" class="cta-button">Start Learning</a>
+    </section>
+
+    <!-- EXAM HUB -->
+    <section class="section" id="exam-hub">
+      <h2>Exam Categories</h2>
+      <div class="content-container">
+
+        <div class="card">
+          <a href="Material/UPSC.html">
+            <div class="icon">🏛️</div>
+            <h3>UPSC</h3>
+            <p>Complete Civil Services resources.</p>
+          </a>
         </div>
-    </div>
-    
-    <div id="main-wrapper" style="opacity: 0;">
-        <header class="main-header">
-            <div class="header-main-content">
-                <h1>SumitStudyIQ: Where Preparation Meets Strategy</h1>
-                <p>UPSC - Civil Services Examination (The Most Comprehensive Study Hub)</p>
-            </div>
-            
-            <div class="search-and-mode">
-                <input type="text" id="searchInput" placeholder="Search books, notes, videos..." aria-label="Search resources">
-                <button id="darkModeToggle">🌙 Dark Mode</button>
-            </div>
 
-            <nav class="main-nav">
-                <a href="index.html" class="active">Home</a>
-                <a href="Meterial/Book.html">All Books</a>
-                <a href="Meterial/Current_Affairs.html">Current Affairs</a>
-                <a href="Meterial/NCERT.html">Only NCERT Video</a>
-                <a href="Meterial/News.html">News</a>
-                <a href="Meterial/Newspaper.html">Newspaper</a>
-                <a href="Meterial/Notes.html">Notes</a>
-                <a href="Meterial/Quiz.html">Quiz</a>
-                <a href="Meterial/Videos.html">Video</a>
-            </nav>
-        </header>
-        
-        <main>
-            
-            <section class="section hero-section initial-hidden">
-                <div class="hero-content">
-                    <h2>Dream. Strategy. Achieve.</h2>
-                    <p>Unlock structured, ad-free, and up-to-date resources designed for UPSC excellence. Stop searching, start studying.</p>
-                    <a href="Meterial/Book.html" class="cta-button">
-                        Start Your Preparation Today →
-                    </a>
-                </div>
-            </section>
+        <div class="card">
+          <a href="Material/SSC.html">
+            <div class="icon">📝</div>
+            <h3>SSC</h3>
+            <p>All Tier-wise notes and materials.</p>
+          </a>
+        </div>
 
-            <section class="section">
-                <h2>🎯 Quick Access: Today's Focus</h2>
-                <div class="books-container">
-                    
-                    <div class="book-item quick-link" data-title="Daily Current Affairs">
-                        <a href="Material/Current_Affairs.html">
-                            <span class="icon">📰</span>
-                            <h3>Current Affairs</h3>
-                            <p>Daily analysis & updates.</p>
-                        </a>
-                    </div>
-                    
-                    <div class="book-item quick-link" data-title="Practice Quiz">
-                        <a href="Material/Quiz.html">
-                            <span class="icon">❓</span>
-                            <h3>Daily Quiz</h3>
-                            <p>Test your knowledge.</p>
-                        </a>
-                    </div>
-                    
-                    <div class="book-item quick-link" data-title="Essential Books">
-                        <a href="Material/Book.html">
-                            <span class="icon">📚</span>
-                            <h3>All Books</h3>
-                            <p>Access the core reading list.</p>
-                        </a>
-                    </div>
-                    
-                    <div class="book-item quick-link" data-title="Strategy Notes">
-                        <a href="Material/Notes.html">
-                            <span class="icon">📝</span>
-                            <h3>Notes Hub</h3>
-                            <p>Subject-wise compiled notes.</p>
-                        </a>
-                    </div>
-                </div>
-            </section>
+        <div class="card">
+          <a href="Material/Railway.html">
+            <div class="icon">🚆</div>
+            <h3>Railway</h3>
+            <p>All NTPC & Group D content in one place.</p>
+          </a>
+        </div>
 
-            <section class="section">
-                <h2>🚀 Why SumitStudyIQ is Unique?</h2>
-                <div class="books-container">
-                    <div class="book-item feature-card" data-title="Syllabus Oriented">
-                        <span class="feature-icon">✅</span>
-                        <h3>Syllabus-Oriented</h3>
-                        <p>Resources are categorized exactly as per the latest UPSC syllabus, saving your time.</p>
-                    </div>
-                    <div class="book-item feature-card" data-title="Ad Free Learning">
-                        <span class="feature-icon">🚫</span>
-                        <h3>Ad-Free Learning</h3>
-                        <p>Focus entirely on your studies without distracting advertisements.</p>
-                    </div>
-                    <div class="book-item feature-card" data-title="Instant Updates">
-                        <span class="feature-icon">⏱️</span>
-                        <h3>Instant Updates</h3>
-                        <p>Get the latest Current Affairs and News analysis instantly.</p>
-                    </div>
-                </div>
-            </section>
-            
-        </main>
-        
-        <footer>
-            <p>&copy; 2025 Sumitstudyiq. All Rights Reserved.</p>
-        </footer>
-    </div>
-    
-    <script src="script.js"></script> 
+        <div class="card">
+          <a href="Material/Book.html">
+            <div class="icon">📚</div>
+            <h3>Books</h3>
+            <p>All essential books and PDFs for your prep.</p>
+          </a>
+        </div>
+
+        <div class="card">
+          <a href="Material/Current_Affairs.html">
+            <div class="icon">📰</div>
+            <h3>Current Affairs</h3>
+            <p>Daily current affairs and analysis.</p>
+          </a>
+        </div>
+
+        <div class="card">
+          <a href="Material/Quiz.html">
+            <div class="icon">❓</div>
+            <h3>Quiz</h3>
+            <p>Test your knowledge with smart quizzes.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2025 SumitStudyIQ | All Rights Reserved</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

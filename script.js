@@ -1,223 +1,176 @@
-// ==================== 0. UNIQUE OPENING EFFECT (Preloader & Hero Animation) ====================
-
+// PRELOADER
 function handlePageLoadAnimation() {
-    const preloader = document.getElementById('preloader');
-    const mainWrapper = document.getElementById('main-wrapper');
-    const heroSection = document.querySelector('.hero-section');
-    
-    if (preloader && mainWrapper) {
-        // Hide preloader and show main content after a small delay (800ms)
-        setTimeout(() => {
-            preloader.classList.add('hidden');
-            mainWrapper.style.opacity = '1';
-            
-            // Apply Hero Section animation only if it exists (i.e., on index.html)
-            if (heroSection) {
-                // Remove the initial-hidden class to trigger the CSS transition/animation
-                heroSection.classList.remove('initial-hidden');
-            }
-        }, 800); // 800ms delay for a smooth fade
-    } else if (mainWrapper) {
-        // If not on index.html, ensure main content is visible immediately
-        mainWrapper.style.opacity = '1';
-    }
+  const preloader = document.getElementById("preloader");
+  const mainWrapper = document.getElementById("main-wrapper");
+  setTimeout(() => {
+    preloader.style.opacity = "0";
+    preloader.style.visibility = "hidden";
+    mainWrapper.style.opacity = "1";
+  }, 700);
 }
 
-
-// ==================== 1. DARK MODE LOGIC ====================
-
+// DARK MODE
 function initializeDarkMode() {
-    const darkModeBtn = document.getElementById('darkModeToggle');
-    if (!darkModeBtn) return;
-    
-    // 1. Initial Check: Read from localStorage
-    if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-        darkModeBtn.textContent = "☀️ Light Mode";
-    } else {
-        // Ensure Light Mode is default if no setting is found
-        document.body.classList.remove('dark-mode');
-        darkModeBtn.textContent = "🌙 Dark Mode";
-    }
-
-    // 2. Click Listener
-    darkModeBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        const isDark = document.body.classList.contains('dark-mode');
-        
-        darkModeBtn.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
+  const btn = document.getElementById("darkModeToggle");
+  const saved = localStorage.getItem("theme");
+  if (saved === "dark") document.body.classList.add("dark-mode");
+  btn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const mode = document.body.classList.contains("dark-mode") ? "dark" : "light";
+    localStorage.setItem("theme", mode);
+  });
 }
 
-// ==================== 2. SEARCH LOGIC ====================
-
+// SEARCH
 function initializeSearchLogic() {
-    const searchInput = document.getElementById('searchInput');
-    if (!searchInput) return;
-
-    searchInput.addEventListener('keyup', () => {
-        const filter = searchInput.value.toLowerCase();
-        
-        // Target all relevant card items on the current page (Including Quiz cards)
-        const items = document.querySelectorAll('.book-item, .note-item, .current-item, .newspaper-item, .video-item, .feature-card, .quiz-question-card');
-        
-        items.forEach(item => {
-            // Priority: data-title (from HTML), then h3 content
-            const title = item.getAttribute('data-title') || item.querySelector('h3')?.textContent || "";
-            
-            // Show item if title includes the filter text, otherwise hide
-            item.style.display = title.toLowerCase().includes(filter) ? '' : 'none';
-        });
+  const input = document.getElementById("searchInput");
+  input?.addEventListener("keyup", () => {
+    const val = input.value.toLowerCase();
+    document.querySelectorAll(".section").forEach(sec => {
+      const cards = sec.querySelectorAll(".card");
+      let visible = 0;
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        const match = text.includes(val);
+        card.style.display = match ? "" : "none";
+        if (match) visible++;
+      });
+      sec.style.display = val && !visible ? "none" : "";
     });
+  });
 }
 
-// ==================== 3. QUIZ LOGIC with TIMER 🌟 ====================
-
-function initializeQuiz() {
-    const quizForm = document.getElementById('quiz-form');
-    const submitBtn = document.getElementById('submit-quiz-btn');
-    const resultsEl = document.getElementById('quiz-results');
-    const scoreDisplayEl = document.getElementById('score-display');
-    const timerDisplay = document.getElementById('quiz-timer');
-    const timerFill = document.getElementById('timer-fill');
-    
-    // Exit if not on the quiz page
-    if (!quizForm || !submitBtn) return; 
-
-    const questionCards = document.querySelectorAll('.quiz-question-card');
-    const totalQuestions = questionCards.length;
-    
-    // Set timer configuration
-    const TIME_PER_QUESTION = 20; // 20 seconds per question
-    const TOTAL_QUIZ_TIME = totalQuestions * TIME_PER_QUESTION; // Total time in seconds
-
-    let timeLeft = TOTAL_QUIZ_TIME;
-    let timerInterval;
-    let quizFinished = false;
-    
-    // Function to get CSS Variable value dynamically
-    function getCssVar(name) {
-        return getComputedStyle(document.documentElement).getPropertyValue(name).trim() || ''; 
-    }
-    
-    // --- Timer Update Function ---
-    function updateTimer() {
-        if (quizFinished) {
-            clearInterval(timerInterval);
-            return;
-        }
-
-        const minutes = Math.floor(timeLeft / 60);
-        const seconds = timeLeft % 60;
-
-        timerDisplay.textContent = 
-            `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-        
-        // Update timer bar width
-        const percentage = (timeLeft / TOTAL_QUIZ_TIME) * 100;
-        timerFill.style.width = `${percentage}%`;
-        
-        // Change color for low time warning
-        if (timeLeft <= 30) {
-            timerDisplay.style.color = '#ef4444'; // Red warning
-            timerFill.style.backgroundColor = '#ef4444';
-        } else {
-             // Reset color based on CSS variable
-            timerDisplay.style.color = getCssVar('--timer-text-color'); 
-            timerFill.style.backgroundColor = getCssVar('--timer-bar-fill');
-        }
-
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            showResults(); // Automatically submit the quiz
-        }
-        
-        timeLeft--;
-    }
-
-    // --- Score Calculation Function ---
-    function showResults() {
-        if (quizFinished) return;
-        quizFinished = true;
-        clearInterval(timerInterval); // Stop the timer
-
-        let numCorrect = 0;
-        
-        const correctColor = getCssVar('--quiz-correct-bg'); 
-        const incorrectColor = getCssVar('--quiz-incorrect-bg');
-        const skippedColor = getCssVar('--quiz-skipped-bg');
-
-        questionCards.forEach(card => {
-            const correctAnswer = card.getAttribute('data-answer');
-            const questionName = card.querySelector('input[type="radio"]').name; 
-            const userAnswerEl = document.querySelector(`input[name="${questionName}"]:checked`);
-            
-            // Disable all radio buttons after submission
-            card.querySelectorAll('input[type="radio"]').forEach(radio => radio.disabled = true);
-            
-            // Set background color based on outcome
-            if (userAnswerEl && userAnswerEl.value === correctAnswer) {
-                numCorrect++;
-                card.style.backgroundColor = correctColor; 
-            } else if (userAnswerEl) {
-                card.style.backgroundColor = incorrectColor; 
-            } else {
-                card.style.backgroundColor = skippedColor; 
-            }
-        });
-
-        // Display results
-        scoreDisplayEl.innerHTML = `You scored ${numCorrect} out of ${totalQuestions} (Score: ${(numCorrect / totalQuestions * 100).toFixed(0)}%).`;
-        resultsEl.style.display = 'block';
-        submitBtn.style.display = 'none'; // Hide submit button
-    }
-
-    // --- Quiz Reset Function ---
-    function resetQuiz() {
-        quizForm.reset(); 
-        quizFinished = false; // Reset status
-        
-        questionCards.forEach(card => {
-            card.style.backgroundColor = 'var(--bg-color-item)'; 
-            // Re-enable all radio buttons
-            card.querySelectorAll('input[type="radio"]').forEach(radio => radio.disabled = false);
-        });
-        
-        resultsEl.style.display = 'none';
-        submitBtn.style.display = 'block';
-        
-        // Restart timer
-        timeLeft = TOTAL_QUIZ_TIME;
-        updateTimer(); // Initial call
-        timerInterval = setInterval(updateTimer, 1000);
-    }
-
-    // --- Initialize Timer and Event Listeners ---
-    
-    // Start timer on initial load
-    updateTimer(); // Initial display
-    timerInterval = setInterval(updateTimer, 1000);
-
-    // Event Listeners: Use Form Submit
-    quizForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Stop page reload
-        showResults();
-    });
-    
-    document.getElementById('restart-quiz-btn')?.addEventListener('click', resetQuiz);
+// QUIZ SYSTEM
+async function loadQuizData(subject) {
+  const response = await fetch(`../assets/${subject}.json`);
+  const data = await response.json();
+  return data;
 }
 
-// ==================== 4. MAIN INITIALIZATION ====================
+async function startSelectedQuiz(subject) {
+  const quiz = await loadQuizData(subject);
+  startQuiz(quiz);
+}
 
-// Use 'load' event to ensure all resources (including fonts/images) are ready before removing the preloader
-window.addEventListener('load', () => {
-    handlePageLoadAnimation();
-});
+function startQuiz(quizData) {
+  let index = 0, score = 0;
+  const questionEl = document.getElementById("question");
+  const optionsEl = document.getElementById("options");
+  const nextBtn = document.getElementById("next-btn");
+  const scoreEl = document.getElementById("score");
 
-// Use 'DOMContentLoaded' for functional setup (which is faster)
-document.addEventListener('DOMContentLoaded', () => {
-    initializeDarkMode();
-    initializeSearchLogic(); 
-    initializeQuiz(); 
+  function showQuestion() {
+    const q = quizData[index];
+    questionEl.textContent = q.question;
+    optionsEl.innerHTML = "";
+    q.options.forEach(option => {
+      const btn = document.createElement("button");
+      btn.className = "option-btn";
+      btn.textContent = option;
+      btn.onclick = () => checkAnswer(option, q.answer);
+      optionsEl.appendChild(btn);
+    });
+    nextBtn.style.display = "none";
+  }
+
+  function checkAnswer(selected, correct) {
+    document.querySelectorAll(".option-btn").forEach(btn => {
+      btn.disabled = true;
+      if (btn.textContent === correct) btn.style.background = "#16a34a";
+      else if (btn.textContent === selected) btn.style.background = "#dc2626";
+    });
+    if (selected === correct) score++;
+    nextBtn.style.display = "block";
+  }
+
+  nextBtn.onclick = () => {
+    index++;
+    if (index < quizData.length) showQuestion();
+    else showScore();
+  };
+
+  function showScore() {
+    questionEl.textContent = "✅ Quiz Completed!";
+    optionsEl.innerHTML = "";
+    scoreEl.textContent = `Your Score: ${score} / ${quizData.length}`;
+    nextBtn.style.display = "none";
+  }
+
+  showQuestion();
+}
+
+// INIT
+window.addEventListener("load", handlePageLoadAnimation);
+document.addEventListener("DOMContentLoaded", () => {
+  initializeDarkMode();
+  initializeSearchLogic();
 });
+let currentQuiz = [];
+let currentIndex = 0;
+let score = 0;
+let timer;
+let timeLeft = 60;
+
+const quizBox = document.getElementById("quizContainer");
+const title = document.getElementById("quizTitle");
+
+document.getElementById("upscQuizBtn").addEventListener("click", () => loadQuiz("../assets/quiz_upsc.json", "UPSC Quiz"));
+document.getElementById("sscQuizBtn").addEventListener("click", () => loadQuiz("../assets/quiz_ssc.json", "SSC Quiz"));
+document.getElementById("railwayQuizBtn").addEventListener("click", () => loadQuiz("../assets/quiz_railway.json", "Railway Quiz"));
+
+async function loadQuiz(file, name) {
+  title.innerText = `📘 ${name}`;
+  quizBox.innerHTML = "<p>Loading quiz...</p>";
+
+  const response = await fetch(file);
+  const data = await response.json();
+  currentQuiz = data;
+  currentIndex = 0;
+  score = 0;
+  timeLeft = 60;
+  startTimer();
+  showQuestion();
+}
+
+function startTimer() {
+  clearInterval(timer);
+  const timerDiv = document.createElement("div");
+  timerDiv.id = "timer";
+  quizBox.prepend(timerDiv);
+  timer = setInterval(() => {
+    timerDiv.innerText = `⏱ Time Left: ${timeLeft}s`;
+    timeLeft--;
+    if (timeLeft < 0) {
+      clearInterval(timer);
+      showResult();
+    }
+  }, 1000);
+}
+
+function showQuestion() {
+  const q = currentQuiz[currentIndex];
+  quizBox.innerHTML = `
+    <div id="timer">⏱ Time Left: ${timeLeft}s</div>
+    <h3>Q${currentIndex + 1}. ${q.question}</h3>
+    ${q.options.map((opt, i) => `<div class='option' onclick='checkAnswer("${opt}")'>${opt}</div>`).join("")}
+  `;
+}
+
+function checkAnswer(selected) {
+  if (selected === currentQuiz[currentIndex].answer) score++;
+  currentIndex++;
+  if (currentIndex < currentQuiz.length) {
+    showQuestion();
+  } else {
+    clearInterval(timer);
+    showResult();
+  }
+}
+
+function showResult() {
+  quizBox.innerHTML = `
+    <h2>🎯 Quiz Completed!</h2>
+    <p>Your Score: <strong>${score}/${currentQuiz.length}</strong></p>
+    <button onclick="location.reload()">Try Another Quiz</button>
+  `;
+}
