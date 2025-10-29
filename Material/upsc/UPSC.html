@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UPSC • SumitStudyIQ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="upsc-style.css">
+</head>
+<body>
+
+  <header class="upsc-header">
+    <div class="brand">
+      <a href="../../index.html" class="back">← Home</a>
+      <h1>UPSC • Civil Services</h1>
+      <span class="tag">Complete Course</span>
+    </div>
+
+    <div class="actions">
+      <input id="upscSearch" type="search" placeholder="Search topics, videos, PDFs...">
+      <button id="themeToggle">🌙</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="upsc-hero">
+      <div>
+        <h2>UPSC Preparation Hub</h2>
+        <p>Notes • Videos • PDFs • Handwritten Notes — arranged by syllabus & topics.</p>
+        <a href="#topics" class="btn">Explore Topics</a>
+      </div>
+      <div class="hero-illustration"></div>
+    </section>
+
+    <section class="upsc-controls">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="notes">Notes</button>
+        <button class="filter-btn" data-filter="videos">Videos</button>
+        <button class="filter-btn" data-filter="pdfs">PDFs</button>
+        <button class="filter-btn" data-filter="handwritten">Handwritten Notes</button>
+      </div>
+      <div class="quick-links">
+        
+        <a href="#syllabus" class="btn outline">Syllabus</a>
+      </div>
+    </section>
+
+    <section id="topics" class="topics-grid">
+      <article class="topic card" data-type="notes">
+        <div class="thumb">🏛️</div>
+        <div class="meta">
+          <h3>Polity & Constitution</h3>
+          <p>Notes, important amendments, and MCQs.</p>
+          <div class="topic-actions">
+            <a href="https://drive.google.com/file/d/1EXAMPLE/view" target="_blank" class="btn small">Open PDF</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="topic card" data-type="videos">
+        <div class="thumb">🌍</div>
+        <div class="meta">
+          <h3>Geography (Physical)</h3>
+          <p>Core lectures and maps.</p>
+          <div class="topic-actions">
+            <a href="https://www.youtube.com/watch?v=EXAMPLE" target="_blank" class="btn small">Watch Video</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="topic card" data-type="pdfs">
+        <div class="thumb">📚</div>
+        <div class="meta">
+          <h3>Economy Basics</h3>
+          <p>Notes + downloadable PDFs.</p>
+          <div class="topic-actions">
+            <a href="https://drive.google.com/file/d/1EXAMPLE/view" target="_blank" class="btn small">Open PDF</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="topic card" data-type="handwritten">
+        <div class="thumb">✍️</div>
+        <div class="meta">
+          <h3>History (Handwritten Notes)</h3>
+          <p>Scanned handwritten notes from toppers.</p>
+          <div class="topic-actions">
+            <a href="https://drive.google.com/file/d/1EXAMPLE/view" target="_blank" class="btn small">Open PDF</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="syllabus" class="syllabus">
+      <h2>UPSC Syllabus (Brief)</h2>
+      <div class="accordion">
+        <div class="acc-item">
+          <button class="acc-header">Prelims — GS Paper I</button>
+          <div class="acc-body">
+            <ul>
+              <li>History</li>
+              <li>Geography</li>
+              <li>Polity</li>
+              <li>Economy</li>
+            </ul>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-header">Mains — Essay & GS Papers</button>
+          <div class="acc-body">
+            <p>Detailed syllabus with topic wise reading list and recommended PDFs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   
+  </main>
+
+  <script src="upsc-script.js"></script>
+</body>
+</html>
