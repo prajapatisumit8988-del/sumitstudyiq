@@ -1,112 +1,33 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>UPSC • SumitStudyIQ</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="upsc-style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UPSC Exam Hub • SumitStudyIQ</title>
+  <link rel="stylesheet" href="upsc-style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- HEADER -->
-  <header class="upsc-header">
-    <div class="brand">
-      <a href="../../index.html" class="back">← Home</a>
-      <h1>UPSC • Civil Services</h1>
-      <span class="tag">Complete Course</span>
-    </div>
-
-    <div class="actions">
-      <input id="upscSearch" type="search" placeholder="Search topics, videos, PDFs...">
-      <button id="themeToggle">🌙</button>
-    </div>
+  <header class="ssc-header">
+    <h1>🧠 UPSC Civil Services Hub</h1>
+    <button id="themeToggle" class="toggle-btn">🌙</button>
   </header>
 
-  <!-- HERO -->
-  <section class="upsc-hero">
-    <div>
-      <h2>UPSC Preparation Hub</h2>
-      <p>Notes • Videos • PDFs • Handwritten Notes — arranged by syllabus & topics.</p>
-      <a href="#topics" class="btn">Explore Topics</a>
+  <main>
+    <h2>📚 Choose Your Resource Type</h2>
+    <div class="ssc-grid">
+      <a href="videos/index.html" class="ssc-card">🎬 Video Lectures</a>
+      <a href="notes/index.html" class="ssc-card">📘 Notes</a>
+      <a href="handwritten notes/index.html" class="ssc-card">✍️ Handwritten Notes</a>
+      <a href="syllabus/index.html" class="ssc-card">🗂️ Syllabus</a>
+      <a href="test-series/index.html" class="ssc-card">🧾 Test Series</a>
     </div>
-  </section>
+  </main>
 
-  <!-- FILTER BUTTONS -->
-  <section class="upsc-controls">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="notes">Notes</button>
-    <button class="filter-btn" data-filter="videos">Videos</button>
-     <button class="filter-btn" data-filter="handwritten">Handwritten Notes</button>
-    <a href="#syllabus" class="btn outline">Syllabus</a>
-  </section>
+  <footer>
+    <p>© 2025 SumitStudyIQ | UPSC Section</p>
+  </footer>
 
-  <!-- TOPICS SECTION -->
-  <section id="topics" class="topics-grid">
-
-    <!-- Notes -->
-    <article class="topic card" data-type="notes">
-      <div class="thumb">🏛️</div>
-      <div class="meta">
-        <h3>All Subject</h3>
-        <p>Important amendments, basic structure, MCQs & summaries.</p>
-        <div class="topic-actions">
-          <a href="notes/index.html" class="btn small">Open Notes</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- Videos -->
-    <article class="topic card" data-type="videos">
-      <div class="thumb">🎥</div>
-      <div class="meta">
-        <h3>UPSC Video Lectures</h3> 
-        <p>Watch detailed topic-wise lectures.</p>
-        <div class="topic-actions">
-         <a href="videos/index.html" class="btn small">Open Videos</a>
-        </div>
-      </div>
-    </article>
-
-  
-
-    <!-- Handwritten Notes -->
-    <article class="topic card" data-type="handwritten">
-      <div class="thumb">✍️</div>
-      <div class="meta">
-        <h3> Handwritten Notes</h3>
-        <p>Toppers’ handwritten notes (scanned format).</p>
-        <div class="topic-actions">
-         <a href="handwritten/index.html" class="btn small">Open Notes</a>
-        </div>
-      </div>
-    </article>
-
-  </section>
-
-  <!-- SYLLABUS SECTION -->
-  <section id="syllabus" class="syllabus">
-    <h2>📘 UPSC Syllabus Overview</h2>
-    <div class="accordion">
-      <div class="acc-item">
-        <button class="acc-header">Prelims — GS Paper I</button>
-        <div class="acc-body">
-          <ul>
-            <li>History</li>
-            <li>Geography</li>
-            <li>Polity</li>
-            <li>Economy</li>
-          </ul>
-        </div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-header">Mains — Essay & GS Papers</button>
-        <div class="acc-body">
-          <p>Includes topic-wise reading list and recommended sources.</p>
-        </div>
-      </div>
-    </div>
-  </section>
- <script src="upsc-script.js"></script>
+  <script src="upsc-script.js"></script>
 </body>
 </html>
