@@ -348,3 +348,53 @@ footer {
 body.dark .class-desc {
   color: #bbb;
 }
+/* 🎥 Video Page */
+.video-container {
+  max-width: 800px;
+  margin: 20px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.class-desc {
+  text-align: center;
+  max-width: 800px;
+  margin: 20px auto;
+  font-size: 1rem;
+  color: #555;
+}
+
+body.dark .class-desc {
+  color: #bbb;
+}
+/* ---------- SUBJECT PAGE (Quant) ---------- */
+.ssc-grid .ssc-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.ssc-grid .ssc-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(135deg, var(--accent), #1e3a8a);
+  transition: height 0.3s ease;
+  z-index: 0;
+}
+
+.ssc-grid .ssc-card:hover::before {
+  height: 100%;
+}
+
+.ssc-grid .ssc-card:hover {
+  color: #fff;
+}
+
+.ssc-grid .ssc-card span {
+  position: relative;
+  z-index: 1;
+}
