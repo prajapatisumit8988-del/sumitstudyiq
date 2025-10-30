@@ -1,157 +1,139 @@
-/* ==========================
-   SSC EXAM HUB • STYLE BASE
-   ========================== */
 :root {
   --bg: #f8fafc;
-  --text: #111;
-  --accent: #0052cc;
+  --text: #0f172a;
   --card-bg: #ffffff;
+  --accent: #2563eb;
   --shadow: rgba(0, 0, 0, 0.1);
 }
 
 body.dark {
-  --bg: #0d1117;
+  --bg: #0f172a;
   --text: #e2e8f0;
+  --card-bg: #1e293b;
   --accent: #3b82f6;
-  --card-bg: #1c1f26;
   --shadow: rgba(255, 255, 255, 0.05);
-}
-
-/* ---------- RESET ---------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
 
 body {
   background: var(--bg);
   color: var(--text);
-  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  transition: background 0.3s, color 0.3s;
   display: flex;
   flex-direction: column;
-  transition: background 0.3s, color 0.3s;
+  min-height: 100vh;
 }
 
-/* ---------- HEADER ---------- */
+/* Header */
 .ssc-header {
-  background: linear-gradient(90deg, #0052cc, #007bff);
+  background: linear-gradient(135deg, var(--accent), #1e3a8a);
   color: white;
   padding: 1rem 1.5rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-radius: 0 0 1rem 1rem;
+  justify-content: space-between;
   box-shadow: 0 3px 10px var(--shadow);
+  border-radius: 0 0 1rem 1rem;
+  flex-wrap: wrap;
 }
 
-.nav-buttons a {
-  background: white;
-  color: var(--accent);
+.ssc-header a {
   text-decoration: none;
+  color: white;
   font-weight: 600;
+  margin-right: 10px;
+}
+
+.home-btn, .back {
+  background: rgba(255, 255, 255, 0.2);
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  margin-right: 0.5rem;
-  transition: 0.3s;
+  transition: background 0.3s;
 }
 
-.nav-buttons a:hover {
-  background: #e8f0ff;
-  transform: translateY(-2px);
+.home-btn:hover, .back:hover {
+  background: rgba(255, 255, 255, 0.35);
 }
 
 .toggle-btn {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
   color: white;
-  border: 2px solid white;
-  border-radius: 8px;
-  padding: 0.4rem 0.7rem;
+  font-size: 1.2rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 1rem;
-  transition: 0.3s;
 }
 
 .toggle-btn:hover {
-  background: white;
-  color: var(--accent);
+  background: rgba(255, 255, 255, 0.35);
 }
 
-/* ---------- MAIN ---------- */
-main {
-  flex: 1;
-  text-align: center;
-  padding: 2rem 1rem;
-}
-
-main h2 {
-  color: var(--accent);
-  margin-bottom: 1.5rem;
-}
-
-/* ---------- GRID (Cards) ---------- */
+/* Grid cards */
 .ssc-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
+  padding: 2rem;
 }
 
 .ssc-card {
   background: var(--card-bg);
-  border-radius: 12px;
+  color: var(--text);
+  border-radius: 1rem;
   padding: 1.5rem;
-  box-shadow: 0 4px 12px var(--shadow);
+  text-align: center;
   text-decoration: none;
-  color: var(--accent);
   font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  box-shadow: 0 4px 8px var(--shadow);
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .ssc-card:hover {
   background: var(--accent);
   color: white;
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 }
 
-/* ---------- BACK & HOME BUTTONS ---------- */
-.back,
-.home-btn {
-  display: inline-block;
-  font-weight: 600;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
-  text-decoration: none;
-  color: white;
-  background: var(--accent);
-  transition: all 0.3s ease;
-}
-
-.back:hover,
-.home-btn:hover {
-  transform: translateY(-3px);
+/* Video layout */
+.video-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 12px;
   box-shadow: 0 4px 10px var(--shadow);
 }
 
-/* ---------- FOOTER ---------- */
+iframe {
+  border-radius: 10px;
+  box-shadow: 0 3px 10px var(--shadow);
+}
+
+.class-desc {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+/* Footer */
 footer {
   text-align: center;
   padding: 1rem;
   background: var(--card-bg);
-  box-shadow: 0 -3px 10px var(--shadow);
-  font-size: 0.9rem;
+  margin-top: auto;
+  box-shadow: 0 -2px 6px var(--shadow);
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* Responsive */
 @media (max-width: 600px) {
-  main {
-    padding: 1rem;
-  }
   .ssc-header h1 {
     font-size: 1rem;
+  }
+  .ssc-card {
+    font-size: 0.95rem;
   }
 }

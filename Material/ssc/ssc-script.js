@@ -1,45 +1,25 @@
-// ======================================
-// SSC SCRIPT • SUMITSTUDYIQ
-// ======================================
-
-document.addEventListener("DOMContentLoaded", () => {
-  // 🌙 THEME TOGGLE
-  const toggleBtn = document.getElementById("themeToggle");
+document.addEventListener("DOMContentLoaded", function () {
   const body = document.body;
+  const toggleBtn = document.getElementById("themeToggle");
 
+  // Saved theme check
   const savedTheme = localStorage.getItem("ssc-theme");
   if (savedTheme === "dark") {
     body.classList.add("dark");
     if (toggleBtn) toggleBtn.textContent = "☀️";
+  } else {
+    if (toggleBtn) toggleBtn.textContent = "🌙";
   }
 
+  // Toggle dark/light
   if (toggleBtn) {
     toggleBtn.addEventListener("click", () => {
-      body.classList.toggle("dark");
-      const isDark = body.classList.contains("dark");
+      const isDark = body.classList.toggle("dark");
       localStorage.setItem("ssc-theme", isDark ? "dark" : "light");
       toggleBtn.textContent = isDark ? "☀️" : "🌙";
     });
   }
 
-  // 🧭 CARD NAVIGATION
-  document.addEventListener("click", (e) => {
-    const card = e.target.closest(".ssc-card");
-    if (card && card.getAttribute("href")) {
-      window.location.href = card.getAttribute("href");
-    }
-  });
-
-  // 🏠 BACK + HOME BUTTON Hover Animation
-  const buttons = document.querySelectorAll(".back, .home-btn");
-  buttons.forEach((btn) => {
-    btn.addEventListener("mouseenter", () => {
-      btn.style.transform = "translateY(-2px)";
-      btn.style.boxShadow = "0 4px 10px rgba(0,0,0,0.15)";
-    });
-    btn.addEventListener("mouseleave", () => {
-      btn.style.transform = "translateY(0)";
-      btn.style.boxShadow = "none";
-    });
-  });
+  // Debug check — (optional)
+  console.log("Theme loaded:", localStorage.getItem("ssc-theme"));
 });
