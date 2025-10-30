@@ -1,35 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Class 1 - Number Basics</title>
-  <link rel="stylesheet" href="../../../../ssc-style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 2 - Divisibility Rules</title>
+  <link rel="stylesheet" href="../../../../ssc-style.css">
+
+  <style>
+    /* 🔹 Header Buttons Styling */
+    .ssc-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 0 0 15px 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .home-btn, .back {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .home-btn:hover, .back:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .toggle-btn {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .toggle-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* 🔹 Video Section */
+    main {
+      padding: 25px;
+      text-align: center;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 90%;
+      max-width: 900px;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      margin: auto;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-wrapper:hover {
+      transform: scale(1.02);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .class-title {
+      margin-top: 25px;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .class-desc {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+      max-width: 800px;
+      margin-inline: auto;
+    }
+
+    /* 🔹 Gradient Glow */
+    .video-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 2px;
+      background: linear-gradient(45deg, #007bff, #00ffcc, #ff00ff, #ffcc00);
+      background-size: 400%;
+      animation: glow 8s linear infinite;
+      z-index: -1;
+      opacity: 0.25;
+    }
+
+    @keyframes glow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #777;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      .class-title { font-size: 1.4rem; }
+      .class-desc { font-size: 1rem; }
+    }
+  </style>
 </head>
+
 <body>
   <header class="ssc-header">
-    <div class="nav-buttons">
+    <div class="nav-links">
       <a href="../../../../../index.html" class="home-btn">🏠 Home</a>
       <a href="../index.html" class="back">⬅️ Back</a>
     </div>
-    <h1>📅 Class 1 - Number Basics</h1>
+    <h1>📅 Class 1 - Basics of Numbers</h1>
     <button id="themeToggle" class="toggle-btn">🌙</button>
   </header>
 
   <main>
-    <div class="video-container">
+    <div class="video-wrapper">
       <iframe
-        width="100%"
-        height="400"
-     src="https://www.youtube.com/embed/1nWQs6IxTrY?si=oPvJLrPuZrbPwTXf" 
-        title="Number System Class 1"
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
+        src="https://www.youtube.com/embed/i852CnipUrQ?si=FmSTHSOtw2rT42xL"
+        title="Divisibility Rules Class 2"
+        allowfullscreen>
+      </iframe>
     </div>
+
+    <h2 class="class-title">📘 Divisibility Rules Explained</h2>
     <p class="class-desc">
-      👉 In this class, well cover the basics of the Number System: natural,
-      whole, integers, and rational numbers.
+      👉 In this class, well learn <b>divisibility rules</b> and <b>quick tricks</b> 
+      to solve SSC-level questions faster and accurately.  
+      Make sure to practice after watching!
     </p>
   </main>
 
