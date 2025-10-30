@@ -3,25 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SSC Videos • SumitStudyIQ</title>
+  <title>SSC Video Lectures • SumitStudyIQ</title>
   <link rel="stylesheet" href="../ssc-style.css">
 </head>
 <body>
-
   <header class="ssc-header">
-    <a href="../SSC.html" class="back">← Back</a>
     <h1>🎬 SSC Video Lectures</h1>
+    <button id="themeToggle" class="toggle-btn">🌙</button>
   </header>
 
   <main>
-    <h2>Select Subject</h2>
+    <h2>📚 Choose Your Subject</h2>
     <div class="ssc-grid">
-      <a href="quant.html" class="ssc-card">🔢 Quantitative Aptitude</a>
-      <a href="reasoning.html" class="ssc-card">🧠 Reasoning</a>
-      <a href="english.html" class="ssc-card">📘 English</a>
-      <a href="gk.html" class="ssc-card">🌏 General Knowledge</a>
+      <div class="ssc-card" data-link="quant/index.html">🧮 Quantitative Aptitude</div>
+      <div class="ssc-card" data-link="#">🧠 Reasoning</div>
+      <div class="ssc-card" data-link="#">📖 English</div>
+      <div class="ssc-card" data-link="#">🌍 General Awareness</div>
     </div>
   </main>
 
+  <footer>
+    <p>© 2025 SumitStudyIQ | All Rights Reserved</p>
+  </footer>
+
+  <script src="../ssc-script.js"></script>
 </body>
 </html>
