@@ -180,3 +180,113 @@ button:hover { background: #005fcc; }
   margin: 0 auto;
   line-height: 1.6;
 }
+/* 🗞️ Current Affairs Hub */
+/* 🗞️ Current Affairs Section */
+.current-affairs {
+  max-width: 1100px;
+  margin: auto;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.current-affairs h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.intro-text {
+  color: #555;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* Search */
+.search-area {
+  margin: 1.5rem auto;
+}
+
+#pdfSearchInput {
+  width: 80%;
+  max-width: 500px;
+  padding: 0.8rem;
+  border: 2px solid #0078d7;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#pdfSearchInput:focus {
+  border-color: #ffeb3b;
+  box-shadow: 0 0 10px rgba(255, 235, 59, 0.5);
+}
+
+/* Grid Layout */
+.pdf-grid, .video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.pdf-card, .video-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.pdf-card:hover, .video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.pdf-card h4, .video-card h4 {
+  color: #0078d7;
+  margin-bottom: 0.5rem;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #0078ff, #00b8d4);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #005fcc, #0091b8);
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background: #0b132b;
+  color: #eaeaea;
+}
+
+body.dark-mode .pdf-card,
+body.dark-mode .video-card {
+  background: #1c2541;
+}
+
+body.dark-mode .cta-button {
+  background: linear-gradient(135deg, #00b4ff, #0078ff);
+}
+
+body.dark-mode #pdfSearchInput {
+  background: #1c2541;
+  color: #fff;
+  border-color: #00b4ff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #pdfSearchInput {
+    width: 90%;
+  }
+}

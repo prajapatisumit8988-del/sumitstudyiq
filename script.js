@@ -174,3 +174,27 @@ function showResult() {
     <button onclick="location.reload()">Try Another Quiz</button>
   `;
 }
+// current affairs
+// 🌙 Dark Mode Toggle
+const darkToggle = document.getElementById("darkModeToggle");
+if (darkToggle) {
+  darkToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    darkToggle.textContent = document.body.classList.contains("dark-mode")
+      ? "☀️ Light Mode"
+      : "🌙 Dark Mode";
+  });
+}
+
+// 🔍 Search Functionality
+const searchInput = document.getElementById("pdfSearchInput");
+if (searchInput) {
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+    const cards = document.querySelectorAll(".pdf-card, .video-card");
+    cards.forEach(card => {
+      const title = card.querySelector("h4").textContent.toLowerCase();
+      card.style.display = title.includes(query) ? "block" : "none";
+    });
+  });
+}
