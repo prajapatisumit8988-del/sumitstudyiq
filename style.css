@@ -164,3 +164,19 @@ button:hover { background: #005fcc; }
   color: #d32f2f;
   margin-bottom: 10px;
 }
+.video-box {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.video-box video {
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+#how-website-works p {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
