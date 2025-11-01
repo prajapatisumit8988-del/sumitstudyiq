@@ -3,12 +3,20 @@ const homeSection = document.getElementById("homeSection");
 const dayList = document.getElementById("dayList");
 const quizContainer = document.getElementById("quizContainer");
 const darkToggle = document.getElementById("darkModeToggle");
-const homeBtn = document.getElementById("homeBtn");
+const backBtn = document.getElementById("backBtn");
+
+let quizData = [];
+let index = 0;
+let score = 0;
+let timer;
+let timeLeft = 60;
 
 // 🌙 Dark Mode
 darkToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
-  darkToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+  darkToggle.textContent = document.body.classList.contains("dark-mode")
+    ? "☀️"
+    : "🌙";
 });
 
 // 🎯 Category selection
@@ -16,20 +24,21 @@ categoryBtns.forEach(btn => {
   btn.addEventListener("click", () => {
     const category = btn.dataset.category;
     homeSection.style.display = "none";
-    homeBtn.classList.add("show");
+    backBtn.classList.add("show");
     showDayList(category);
   });
 });
 
-// 🏠 Home Button
-homeBtn.addEventListener("click", () => {
+// ↩ Back to Quiz Home
+backBtn.addEventListener("click", () => {
   clearInterval(timer);
   quizContainer.innerHTML = "";
   dayList.innerHTML = "";
-  homeBtn.classList.remove("show");
+  backBtn.classList.remove("show");
   homeSection.style.display = "flex";
 });
 
+// 📅 Show available days
 function showDayList(category) {
   dayList.innerHTML = "";
   quizContainer.innerHTML = "";
@@ -43,64 +52,85 @@ function showDayList(category) {
   });
 }
 
-let quizData = [];
-let index = 0;
-let score = 0;
-let timer;
-let timeLeft = 60;
-
-// Load Quiz
+// 📥 Load quiz JSON
 async function loadQuiz(category, day) {
   quizContainer.innerHTML = "<p>Loading...</p>";
-  const res = await fetch(`assets/${category}/${day}.json`);
-  quizData = await res.json();
+  try {
+    const res = await fetch(`assets/${category}/${day}.json`);
+    quizData = await res.json();
+  } catch (err) {
+    quizContainer.innerHTML = "<p>❌ Quiz not found!</p>";
+    return;
+  }
+
   index = 0;
   score = 0;
   timeLeft = 60;
+
+  dayList.style.display = "none";
   startTimer();
   showQuestion();
 }
 
-// Timer
+// ⏰ Timer (runs only once per quiz)
 function startTimer() {
   clearInterval(timer);
   const timerEl = document.createElement("div");
   timerEl.id = "timer";
-  quizContainer.prepend(timerEl);
+  quizContainer.before(timerEl);
+
+  timerEl.textContent = `⏱ Time Left: ${timeLeft}s`;
+
   timer = setInterval(() => {
-    timerEl.textContent = `⏱ Time Left: ${timeLeft}s`;
     timeLeft--;
-    if (timeLeft < 0) {
+    timerEl.textContent = `⏱ Time Left: ${timeLeft}s`;
+    if (timeLeft <= 0) {
       clearInterval(timer);
       showResult();
     }
   }, 1000);
 }
 
-// Show Question
+// 🧠 Show one question
 function showQuestion() {
   const q = quizData[index];
   quizContainer.innerHTML = `
-    <div id="timer">⏱ Time Left: ${timeLeft}s</div>
     <h3>Q${index + 1}. ${q.question}</h3>
-    ${q.options.map(opt => `<div class='option' onclick='checkAnswer("${opt}")'>${opt}</div>`).join("")}
+    ${q.options
+      .map(
+        opt =>
+          `<div class='option' onclick='checkAnswer("${opt}")'>${opt}</div>`
+      )
+      .join("")}
     <button id="skipBtn">⏭ Skip</button>
   `;
   document.getElementById("skipBtn").onclick = skipQuestion;
 }
 
-// Check Answer
+// ✅ Check Answer
 function checkAnswer(selected) {
-  if (selected === quizData[index].answer) score++;
-  nextQuestion();
+  const correct = quizData[index].answer;
+  const options = document.querySelectorAll(".option");
+
+  options.forEach(opt => {
+    opt.style.pointerEvents = "none";
+    if (opt.textContent === correct) opt.style.background = "#00c896";
+    else if (opt.textContent === selected) opt.style.background = "#ff4d4d";
+  });
+
+  if (selected === correct) score++;
+
+  setTimeout(() => {
+    nextQuestion();
+  }, 800);
 }
 
-// Skip
+// ⏭ Skip Question
 function skipQuestion() {
   nextQuestion();
 }
 
-// Next Question
+// ➡ Next Question
 function nextQuestion() {
   index++;
   if (index < quizData.length) showQuestion();
@@ -110,11 +140,11 @@ function nextQuestion() {
   }
 }
 
-// Result
+// 🏁 Show Result
 function showResult() {
   quizContainer.innerHTML = `
     <h2>🎯 Quiz Completed!</h2>
     <p>Your Score: <strong>${score}/${quizData.length}</strong></p>
-    <button onclick="location.reload()">🏠 Go Home</button>
+    <button onclick="location.reload()">🏠 Back to Start</button>
   `;
 }

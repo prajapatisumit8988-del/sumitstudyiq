@@ -10,24 +10,29 @@
 
   <header class="header">
     <div class="logo">Sumit<span>StudyIQ</span></div>
-    <button id="darkModeToggle" class="dark-btn">🌙</button>
+
+    <nav class="nav">
+      <a href="../../index.html" class="home-link">🏠 Home</a>
+      <button id="darkModeToggle" class="dark-btn">🌙</button>
+    </nav>
   </header>
 
   <main class="main-container">
     <h1>🧠 Choose Your Quiz Category</h1>
 
-    <!-- Home Section -->
+    <!-- Category Section -->
     <div id="homeSection" class="quiz-category">
       <button class="quiz-btn" data-category="upsc">UPSC Quiz</button>
       <button class="quiz-btn" data-category="ssc">SSC Quiz</button>
       <button class="quiz-btn" data-category="railway">Railway Quiz</button>
     </div>
 
-    <!-- Back Home Button -->
-    <button id="homeBtn" class="home-btn">🏠 Back to Home</button>
-
+    <!-- Day List + Quiz -->
     <div id="dayList" class="day-list"></div>
     <div id="quizContainer" class="quiz-box"></div>
+
+    <!-- Back to Quiz Home -->
+    <button id="backBtn" class="back-btn">↩ Back to Quiz </button>
   </main>
 
   <footer>
