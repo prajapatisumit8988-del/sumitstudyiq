@@ -1,0 +1,12 @@
+[
+  {
+    "question": "Who wrote the Indian Constitution?",
+    "options": ["Mahatma Gandhi", "Dr. B.R. Ambedkar", "Nehru", "Sardar Patel"],
+    "answer": "Dr. B.R. Ambedkar"
+  },
+  {
+    "question": "Which article gives Right to Equality?",
+    "options": ["Article 14", "Article 19", "Article 21", "Article 32"],
+    "answer": "Article 14"
+  }
+]

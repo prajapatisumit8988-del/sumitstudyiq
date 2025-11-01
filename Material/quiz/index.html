@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Quiz | SumitStudyIQ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">Sumit<span>StudyIQ</span></div>
+    <button id="darkModeToggle" class="dark-btn">🌙</button>
+  </header>
+
+  <main class="main-container">
+    <h1>🧠 Choose Your Quiz Category</h1>
+
+    <!-- Home Section -->
+    <div id="homeSection" class="quiz-category">
+      <button class="quiz-btn" data-category="upsc">UPSC Quiz</button>
+      <button class="quiz-btn" data-category="ssc">SSC Quiz</button>
+      <button class="quiz-btn" data-category="railway">Railway Quiz</button>
+    </div>
+
+    <!-- Back Home Button -->
+    <button id="homeBtn" class="home-btn">🏠 Back to Home</button>
+
+    <div id="dayList" class="day-list"></div>
+    <div id="quizContainer" class="quiz-box"></div>
+  </main>
+
+  <footer>
+    <p>© 2025 SumitStudyIQ | Daily Quiz Platform</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

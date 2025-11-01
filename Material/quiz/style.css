@@ -1,0 +1,148 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+  color: #222;
+  transition: 0.3s;
+}
+
+.header {
+  background: #1a1a40;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo span {
+  color: #00c896;
+}
+
+.dark-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.5em;
+  color: white;
+  cursor: pointer;
+}
+
+.main-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.quiz-category {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.quiz-btn {
+  padding: 10px 20px;
+  background: #00c896;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.quiz-btn:hover {
+  background: #008a6e;
+}
+
+.day-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.day-list button {
+  padding: 8px 15px;
+  border: none;
+  background: #1a1a40;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.day-list button:hover {
+  background: #333366;
+}
+
+.quiz-box {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.option {
+  background: #e8e8e8;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: #c6f6d5;
+}
+
+#timer {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.home-btn {
+  background: #ffb300;
+  color: #000;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-weight: 600;
+  display: none; /* initially hidden */
+}
+
+.home-btn.show {
+  display: inline-block; /* visible class */
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #1a1a40;
+  color: white;
+  margin-top: 30px;
+}
+
+.dark-mode {
+  background: #121212;
+  color: #ddd;
+}
+
+.dark-mode .quiz-box {
+  background: #1e1e1e;
+}
+
+.dark-mode .option {
+  background: #2a2a2a;
+  color: #ddd;
+}
+
+@media (max-width: 600px) {
+  .quiz-box {
+    width: 90%;
+  }
+}
